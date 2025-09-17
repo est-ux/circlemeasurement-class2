@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>지름과 원주의 관계 탐구 - 2반</title>
+    <title>지름과 원주의 관계 탐구</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
@@ -576,7 +576,7 @@
             <div class="text-center mb-16">
                 <h1 class="text-8xl font-bold text-white mb-8 relative">
                     <span class="inline-block animate-pulse">🔍</span> 
-                    <span class="bg-gradient-to-r from-white via-yellow-200 to-white bg-clip-text text-transparent animate-pulse">지름과 원주의 관계 탐구 - 2반</span>
+                    <span class="bg-gradient-to-r from-white via-yellow-200 to-white bg-clip-text text-transparent animate-pulse">지름과 원주의 관계 탐구</span>
                     <div class="absolute -top-4 -right-4 text-5xl animate-spin" style="animation-duration: 3s;">✨</div>
                 </h1>
                 <p class="text-4xl text-white opacity-90">재미있는 수학 탐험을 시작해보세요!</p>
@@ -603,7 +603,7 @@
                 <div class="card p-10 text-center cursor-pointer" onclick="showActivity('activity3')">
                     <div class="activity-icon text-7xl mb-6">✅</div>
                     <h2 class="text-5xl font-bold text-gray-800 mb-6">활동 3</h2>
-                    <h3 class="text-2xl font-semibold text-purple-600 mb-5">발견한 규칙 맞는지 확인하기</h3>
+                    <h3 class="text-2xl font-semibold text-purple-600 mb-5">규칙 적용하고 확인하기!</h3>
                     <p class="text-xl text-gray-600 leading-relaxed">우리가 발견한 규칙이 정말 맞는지 확인해보아요!</p>
                 </div>
             </div>
@@ -620,20 +620,25 @@
             </div>
             
             <!-- 활동 1 서브메뉴 -->
-            <div class="grid md:grid-cols-2 gap-12 mb-12">
-                <button onclick="showSubActivity1('activity1-1')" class="card p-10 text-center hover:bg-blue-50">
-                    <div class="text-5xl mb-6">💡</div>
-                    <div class="font-semibold text-2xl">원주를 측정하는 다양한 방법 떠올려보기</div>
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <button onclick="showSubActivity1('activity1-1')" class="card p-8 text-center hover:bg-blue-50">
+                    <div class="text-4xl mb-4">💡</div>
+                    <div class="font-semibold text-xl">원주를 측정하는 다양한 방법 떠올려보기</div>
                 </button>
-                <button onclick="showSubActivity1('activity1-2')" class="card p-10 text-center hover:bg-green-50">
-                    <div class="text-5xl mb-6">📏</div>
-                    <div class="font-semibold text-2xl">물건의 원주 실제 측정해보기</div>
+                <button onclick="showSubActivity1('activity1-2')" class="card p-8 text-center hover:bg-green-50">
+                    <div class="text-4xl mb-4">📏</div>
+                    <div class="font-semibold text-xl">물건의 원주 실제 측정해보기</div>
+                </button>
+                <button onclick="showSubActivity1('activity1-3')" class="card p-8 text-center hover:bg-purple-50">
+                    <div class="text-4xl mb-4">📐</div>
+                    <div class="font-semibold text-xl">지름 측정하기</div>
                 </button>
             </div>
             
             <!-- 활동 1-1: 측정방법 생각하기 -->
             <div id="activity1-1" class="card p-10 mb-12">
-                <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">💡 원주를 측정하는 다양한 방법 떠올려보기</h2>
+                <h2 class="text-3xl font-bold text-center mb-4 text-gray-800">💡 원주를 측정하는 다양한 방법 떠올려보기</h2>
+                <p class="text-center text-gray-500 text-lg mb-8">모둠별로 창의적인 측정 방법을 생각해보아요.</p>
                 
                 <div class="grid md:grid-cols-2 gap-12">
                     <div class="measurement-card">
@@ -641,18 +646,20 @@
                         <div class="space-y-5">
                             <div>
                                 <label class="block text-lg font-semibold mb-2">모둠 선택:</label>
-                                <select id="team-select-1-1" class="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-blue-500 text-lg">
-                                    <option value="">모둠을 선택하세요</option>
-                                    <option value="모둠1">모둠1</option>
-                                    <option value="모둠2">모둠2</option>
-                                    <option value="모둠3">모둠3</option>
-                                    <option value="모둠4">모둠4</option>
-                                    <option value="모둠5">모둠5</option>
-                                    <option value="모둠6">모둠6</option>
-                                    <option value="모둠7">모둠7</option>
-                                    <option value="모둠8">모둠8</option>
-                                    <option value="모둠9">모둠9</option>
-                                </select>
+                                <div id="team-select-1-1" class="w-full">
+                                    <div class="text-lg font-semibold mb-3">모둠을 선택하세요:</div>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 text-lg transition-all duration-200" data-team="파랑모둠" style="background-color: #dbeafe; border-color: #3b82f6;">파랑모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-green-500 hover:bg-green-50 text-lg transition-all duration-200" data-team="초록모둠" style="background-color: #dcfce7; border-color: #22c55e;">초록모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500 hover:bg-purple-50 text-lg transition-all duration-200" data-team="보라모둠" style="background-color: #f3e8ff; border-color: #a855f7;">보라모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-red-500 hover:bg-red-50 text-lg transition-all duration-200" data-team="빨강모둠" style="background-color: #fee2e2; border-color: #ef4444;">빨강모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-yellow-500 hover:bg-yellow-50 text-lg transition-all duration-200" data-team="노랑모둠" style="background-color: #fef3c7; border-color: #eab308;">노랑모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-gray-500 hover:bg-gray-50 text-lg transition-all duration-200" data-team="하양모둠" style="background-color: #f9fafb; border-color: #6b7280;">하양모둠</button>
+                                    </div>
+                                    <div id="selected-team-1-1" class="mt-4 p-3 bg-blue-100 border-2 border-blue-300 rounded-lg text-lg font-semibold text-blue-800 hidden">
+                                        선택된 모둠: <span id="selected-team-name-1-1"></span>
+                                    </div>
+                                </div>
                             </div>
                             
                             <div>
@@ -683,7 +690,7 @@
                                 🗑️ 기존 자료 삭제
                             </button>
                         </div>
-                        <div id="methods-results" class="space-y-4 max-h-[500px] overflow-y-auto text-base">
+                        <div id="methods-results" class="space-y-4 text-base">
                             <p class="text-center text-gray-500 text-lg">아직 제출된 결과가 없습니다.</p>
                         </div>
                     </div>
@@ -700,19 +707,23 @@
                         <div class="space-y-5">
                             <div>
                                 <label class="block text-lg font-semibold mb-2">모둠 선택:</label>
-                                <select id="team-select-1-2" class="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-blue-500 text-lg">
-                                    <option value="">모둠을 선택하세요</option>
-                                    <option value="모둠1">모둠1</option>
-                                    <option value="모둠2">모둠2</option>
-                                    <option value="모둠3">모둠3</option>
-                                    <option value="모둠4">모둠4</option>
-                                    <option value="모둠5">모둠5</option>
-                                    <option value="모둠6">모둠6</option>
-                                    <option value="모둠7">모둠7</option>
-                                    <option value="모둠8">모둠8</option>
-                                    <option value="모둠9">모둠9</option>
-                                </select>
+                                <div id="team-select-1-2" class="w-full">
+                                    <div class="text-lg font-semibold mb-3">모둠을 선택하세요:</div>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 text-lg transition-all duration-200" data-team="파랑모둠" style="background-color: #dbeafe; border-color: #3b82f6;">파랑모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-green-500 hover:bg-green-50 text-lg transition-all duration-200" data-team="초록모둠" style="background-color: #dcfce7; border-color: #22c55e;">초록모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500 hover:bg-purple-50 text-lg transition-all duration-200" data-team="보라모둠" style="background-color: #f3e8ff; border-color: #a855f7;">보라모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-red-500 hover:bg-red-50 text-lg transition-all duration-200" data-team="빨강모둠" style="background-color: #fee2e2; border-color: #ef4444;">빨강모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-yellow-500 hover:bg-yellow-50 text-lg transition-all duration-200" data-team="노랑모둠" style="background-color: #fef3c7; border-color: #eab308;">노랑모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-gray-500 hover:bg-gray-50 text-lg transition-all duration-200" data-team="하양모둠" style="background-color: #f9fafb; border-color: #6b7280;">하양모둠</button>
+                                    </div>
+                                    <div id="selected-team-1-2" class="mt-4 p-3 bg-blue-100 border-2 border-blue-300 rounded-lg text-lg font-semibold text-blue-800 hidden">
+                                        선택된 모둠: <span id="selected-team-name-1-2"></span>
+                                    </div>
+                                </div>
                             </div>
+                            
+                            <p class="text-center text-gray-600 text-lg mb-4">줄자로 다음 원주를 측정해주세요</p>
                             
                             <div class="grid grid-cols-3 gap-4">
                                 <div>
@@ -751,44 +762,31 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- 활동 2: 지름과 원주 관계 -->
-        <div id="activity2" class="hidden container mx-auto max-w-[95vw]">
-            <div class="flex justify-between items-center mb-12">
-                <button onclick="showMainScreen()" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-xl">
-                    ← 메인으로 돌아가기
-                </button>
-                <h1 class="text-4xl font-bold text-white">🎯 &lt;활동 2&gt; 원주가 가진 숨은 규칙 발견하기</h1>
-                <div></div>
-            </div>
             
-            <!-- 활동 2 서브메뉴 -->
-            <div class="grid md:grid-cols-5 gap-8 mb-12">
-                <button onclick="showSubActivity('activity2-1')" class="card p-8 text-center hover:bg-blue-50">
-                    <div class="text-4xl mb-4">🎯</div>
-                    <div class="font-semibold text-xl">지름은 무엇일까?</div>
-                </button>
-                <button onclick="showSubActivity('activity2-1-5')" class="card p-8 text-center hover:bg-purple-50">
-                    <div class="text-4xl mb-4">📐</div>
-                    <div class="font-semibold text-xl">지름 측정하는 법 알기</div>
-                </button>
-                <button onclick="showSubActivity('activity2-2')" class="card p-8 text-center hover:bg-green-50">
-                    <div class="text-4xl mb-4">📏</div>
-                    <div class="font-semibold text-xl">물건의 지름 측정해보기</div>
-                </button>
-                <button onclick="showSubActivity('activity2-3')" class="card p-8 text-center hover:bg-purple-50">
-                    <div class="text-4xl mb-4">🔄</div>
-                    <div class="font-semibold text-xl">원주가 가진 규칙 발견해보기</div>
-                </button>
-                <button onclick="showSubActivity('activity2-4')" class="card p-8 text-center hover:bg-yellow-50">
-                    <div class="text-4xl mb-4">📝</div>
-                    <div class="font-semibold text-xl">원주가 가진 규칙 기록하기</div>
-                </button>
-            </div>
-            
-            <!-- 활동 2-1: 지름이란? -->
-            <div id="activity2-1" class="card p-8 mb-6">
+            <!-- 활동 1-3: 지름 측정하기 -->
+            <div id="activity1-3" class="hidden card p-8 mb-6">
+                <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">📐 지름 측정하기</h2>
+                
+                <!-- 지름 측정하기 서브메뉴 -->
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <button onclick="showDiameterSubActivity('activity1-3-1')" class="card p-6 text-center hover:bg-blue-50">
+                        <div class="text-3xl mb-4">🎯</div>
+                        <div class="font-semibold text-lg">지름은 무엇일까?</div>
+                    </button>
+                    <button onclick="showDiameterSubActivity('activity1-3-2')" class="card p-6 text-center hover:bg-purple-50">
+                        <div class="text-3xl mb-4">📐</div>
+                        <div class="font-semibold text-lg">지름 측정하는 법 알기</div>
+                    </button>
+                    <button onclick="showDiameterSubActivity('activity1-3-3')" class="card p-6 text-center hover:bg-green-50">
+                        <div class="text-3xl mb-4">📏</div>
+                        <div class="font-semibold text-lg">물건의 지름 측정해보기</div>
+                    </button>
+                </div>
+                
+                <!-- 지름 관련 활동들이 여기에 표시됩니다 -->
+                <div id="diameter-content-1">
+                    <!-- 활동 1-3-1: 지름이란? -->
+                    <div id="activity1-3-1" class="hidden card p-8 mb-6">
                 <h2 class="text-4xl font-bold text-center mb-6 text-gray-800">🎯 지름은 무엇일까?</h2>
                 <p class="text-center text-lg mb-6 text-gray-600">원 위의 빨간 점을 드래그해서 움직여보세요!</p>
                 
@@ -797,8 +795,8 @@
                         <svg width="400" height="400" class="border-2 border-gray-300 rounded-lg bg-white">
                             <circle cx="200" cy="200" r="150" fill="none" stroke="#667eea" stroke-width="3"/>
                             <circle cx="200" cy="200" r="3" fill="#333"/>
-                            <line id="chord-line" x1="200" y1="50" x2="200" y2="350" stroke="#e74c3c" stroke-width="3"/>
-                            <circle id="movable-point" cx="200" cy="50" r="8" fill="#e74c3c" cursor="pointer"/>
+                            <line id="chord-line-1" x1="200" y1="50" x2="200" y2="350" stroke="#e74c3c" stroke-width="3"/>
+                            <circle id="movable-point-1" cx="200" cy="50" r="8" fill="#e74c3c" cursor="pointer"/>
                             <circle cx="200" cy="350" r="8" fill="#e74c3c"/>
                             <text x="210" y="205" font-size="12" fill="#333">중심</text>
                         </svg>
@@ -807,34 +805,34 @@
                 
                 <div class="text-center">
                     <div class="formula-display">
-                        <div class="text-lg font-semibold mb-2">현재 선분의 길이 <span id="diameter-label"></span></div>
-                        <div id="chord-length" class="text-3xl font-bold text-blue-600">30.00 cm</div>
-                        <div id="diameter-message" class="text-sm text-gray-600 mt-2"></div>
+                        <div class="text-lg font-semibold mb-2">현재 선분의 길이 <span id="diameter-label-1"></span></div>
+                        <div id="chord-length-1" class="text-3xl font-bold text-blue-600">30.00 cm</div>
+                        <div id="diameter-message-1" class="text-sm text-gray-600 mt-2"></div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- 활동 2-1.5: 지름 측정하는 법 알기 -->
-            <div id="activity2-1-5" class="hidden card p-8 mb-6">
+                    </div>
+                    
+                    <!-- 활동 1-3-2: 지름 측정하는 법 알기 -->
+                    <div id="activity1-3-2" class="hidden card p-8 mb-6">
                 <h2 class="text-4xl font-bold text-center mb-6 text-gray-800">📐 지름 측정하는 법 알기</h2>
                 <p class="text-center text-lg mb-6 text-gray-600">삼각자 두 개로 원의 지름을 정확히 재어보세요!</p>
                 
                 <div class="diameter-simulator-container">
                     <div class="toolbar">
                         <div class="control-group">
-                            <label>원의 크기: <span id="rVal">120</span> (단위)</label>
-                            <input id="radius" type="range" min="60" max="180" value="120" />
-                            <label><input id="snap" type="checkbox" checked> 자동 맞춤</label>
-                            <label><input id="showTrue" type="checkbox" checked> 정답 보기</label>
+                            <label>원의 크기: <span id="rVal-1">120</span> (단위)</label>
+                            <input id="radius-1" type="range" min="60" max="180" value="120" />
+                            <label><input id="snap-1" type="checkbox" checked> 자동 맞춤</label>
+                            <label><input id="showTrue-1" type="checkbox" checked> 정답 보기</label>
                         </div>
                         <div class="control-group">
-                            <button id="autoPlace" class="btn secondary">삼각자 자동 배치</button>
-                            <button id="randomize" class="btn ghost">새로운 원</button>
-                            <button id="reset" class="btn">처음부터</button>
+                            <button id="autoPlace-1" class="btn secondary">삼각자 자동 배치</button>
+                            <button id="randomize-1" class="btn ghost">새로운 원</button>
+                            <button id="reset-1" class="btn">처음부터</button>
                         </div>
                     </div>
 
-                    <canvas id="board" width="960" height="520"></canvas>
+                    <canvas id="board-1" width="960" height="520"></canvas>
 
                     <div class="legend">
                         <div class="legend-item">
@@ -858,15 +856,15 @@
                     <div class="measurements">
                         <div class="measurement-card primary">
                             <div>📏 측정한 지름</div>
-                            <div class="measurement-value" id="readMeasured">0.0 cm</div>
+                            <div class="measurement-value" id="readMeasured-1">0.0 cm</div>
                         </div>
                         <div class="measurement-card success">
                             <div>✅ 실제 지름</div>
-                            <div class="measurement-value" id="readTrue">0.0 cm</div>
+                            <div class="measurement-value" id="readTrue-1">0.0 cm</div>
                         </div>
                         <div class="measurement-card warning">
                             <div>📊 오차</div>
-                            <div class="measurement-value" id="readDelta">0.0 mm</div>
+                            <div class="measurement-value" id="readDelta-1">0.0 mm</div>
                         </div>
                     </div>
 
@@ -880,13 +878,14 @@
                         </ol>
                     </div>
 
-                    <div class="feedback" id="feedback"></div>
+                    <div class="feedback" id="feedback-1"></div>
                 </div>
-            </div>
-            
-            <!-- 활동 2-2: 지름 측정하기 -->
-            <div id="activity2-2" class="hidden card p-10 mb-12">
-                <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">📏 물건의 지름 측정해보기</h2>
+                    </div>
+                    
+                    <!-- 활동 1-3-3: 지름 측정하기 -->
+                    <div id="activity1-3-3" class="hidden card p-10 mb-12">
+                <h2 class="text-3xl font-bold text-center mb-4 text-gray-800">📏 물건의 지름 측정해보기</h2>
+                <p class="text-center text-gray-500 text-lg mb-8">삼각자 2개와 자를 사용하여 정확한 지름을 측정해보아요</p>
                 
                 <div class="grid md:grid-cols-2 gap-12">
                     <div class="measurement-card">
@@ -894,42 +893,44 @@
                         <div class="space-y-5">
                             <div>
                                 <label class="block text-lg font-semibold mb-2">모둠 선택:</label>
-                                <select id="team-select-2" class="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-blue-500 text-lg">
-                                    <option value="">모둠을 선택하세요</option>
-                                    <option value="모둠1">모둠1</option>
-                                    <option value="모둠2">모둠2</option>
-                                    <option value="모둠3">모둠3</option>
-                                    <option value="모둠4">모둠4</option>
-                                    <option value="모둠5">모둠5</option>
-                                    <option value="모둠6">모둠6</option>
-                                    <option value="모둠7">모둠7</option>
-                                    <option value="모둠8">모둠8</option>
-                                    <option value="모둠9">모둠9</option>
-                                </select>
+                                <div id="team-select-1-3" class="w-full">
+                                    <div class="text-lg font-semibold mb-3">모둠을 선택하세요:</div>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 text-lg transition-all duration-200" data-team="파랑모둠" style="background-color: #dbeafe; border-color: #3b82f6;">파랑모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-green-500 hover:bg-green-50 text-lg transition-all duration-200" data-team="초록모둠" style="background-color: #dcfce7; border-color: #22c55e;">초록모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500 hover:bg-purple-50 text-lg transition-all duration-200" data-team="보라모둠" style="background-color: #f3e8ff; border-color: #a855f7;">보라모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-red-500 hover:bg-red-50 text-lg transition-all duration-200" data-team="빨강모둠" style="background-color: #fee2e2; border-color: #ef4444;">빨강모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-yellow-500 hover:bg-yellow-50 text-lg transition-all duration-200" data-team="노랑모둠" style="background-color: #fef3c7; border-color: #eab308;">노랑모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-gray-500 hover:bg-gray-50 text-lg transition-all duration-200" data-team="하양모둠" style="background-color: #f9fafb; border-color: #6b7280;">하양모둠</button>
+                                    </div>
+                                    <div id="selected-team-1-3" class="mt-4 p-3 bg-blue-100 border-2 border-blue-300 rounded-lg text-lg font-semibold text-blue-800 hidden">
+                                        선택된 모둠: <span id="selected-team-name-1-3"></span>
+                                    </div>
+                                </div>
                             </div>
                             
                             <div class="grid grid-cols-3 gap-4">
                                 <div>
                                     <label class="block text-base font-semibold mb-2">🥤 음료수 캔</label>
-                                    <div class="w-full p-3 bg-gray-100 border-2 border-gray-200 rounded-lg mb-2 text-gray-600 text-sm" id="can-circumference-2">원주: 모둠을 선택하면 자동 입력 됨</div>
-                                    <input type="number" id="can-diameter" step="0.1" placeholder="지름 (cm)" class="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-green-500 text-lg" oninput="limitDecimalPlaces(this, 1)">
+                                    <div class="w-full p-3 bg-gray-100 border-2 border-gray-200 rounded-lg mb-2 text-gray-600 text-sm" id="can-circumference-1-3">원주: 모둠을 선택하면 자동 입력 됨</div>
+                                    <input type="number" id="can-diameter-1-3" step="0.1" placeholder="지름 (cm)" class="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-green-500 text-lg" oninput="limitDecimalPlaces(this, 1)">
                                     <p class="text-sm text-gray-500 mt-1">소수 첫째자리까지 입력</p>
                                 </div>
                                 <div>
                                     <label class="block text-base font-semibold mb-2">🥫 참치 통조림</label>
-                                    <div class="w-full p-3 bg-gray-100 border-2 border-gray-200 rounded-lg mb-2 text-gray-600 text-sm" id="tuna-circumference-2">원주: 모둠을 선택하면 자동 입력 됨</div>
-                                    <input type="number" id="tuna-diameter" step="0.1" placeholder="지름 (cm)" class="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-green-500 text-lg" oninput="limitDecimalPlaces(this, 1)">
+                                    <div class="w-full p-3 bg-gray-100 border-2 border-gray-200 rounded-lg mb-2 text-gray-600 text-sm" id="tuna-circumference-1-3">원주: 모둠을 선택하면 자동 입력 됨</div>
+                                    <input type="number" id="tuna-diameter-1-3" step="0.1" placeholder="지름 (cm)" class="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-green-500 text-lg" oninput="limitDecimalPlaces(this, 1)">
                                     <p class="text-sm text-gray-500 mt-1">소수 첫째자리까지 입력</p>
                                 </div>
                                 <div>
                                     <label class="block text-base font-semibold mb-2">🧩 퍼즐통</label>
-                                    <div class="w-full p-3 bg-gray-100 border-2 border-gray-200 rounded-lg mb-2 text-gray-600 text-sm" id="puzzle-circumference-2">원주: 모둠을 선택하면 자동 입력 됨</div>
-                                    <input type="number" id="puzzle-diameter" step="0.1" placeholder="지름 (cm)" class="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-green-500 text-lg" oninput="limitDecimalPlaces(this, 1)">
+                                    <div class="w-full p-3 bg-gray-100 border-2 border-gray-200 rounded-lg mb-2 text-gray-600 text-sm" id="puzzle-circumference-1-3">원주: 모둠을 선택하면 자동 입력 됨</div>
+                                    <input type="number" id="puzzle-diameter-1-3" step="0.1" placeholder="지름 (cm)" class="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-green-500 text-lg" oninput="limitDecimalPlaces(this, 1)">
                                     <p class="text-sm text-gray-500 mt-1">소수 첫째자리까지 입력</p>
                                 </div>
                             </div>
                             
-                            <button onclick="submitDiameter()" class="w-full btn-primary text-white py-5 rounded-lg font-bold text-xl">
+                            <button onclick="submitDiameter1()" class="w-full btn-primary text-white py-5 rounded-lg font-bold text-xl">
                                 📤 제출하기
                             </button>
                         </div>
@@ -938,16 +939,42 @@
                     <div class="measurement-card">
                         <div class="flex justify-between items-center mb-6">
                             <h3 class="text-2xl font-bold text-center">👥 우리 반 친구들의 지름 측정 결과</h3>
-                            <button onclick="clearAllDiameters()" class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg text-base font-bold transition-colors shadow-lg">
+                            <button onclick="clearAllDiameters1()" class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg text-base font-bold transition-colors shadow-lg">
                                 🗑️ 기존 자료 삭제
                             </button>
                         </div>
-                        <div id="diameter-results" class="space-y-4 max-h-[500px] overflow-y-auto text-base">
+                        <div id="diameter-results-1" class="space-y-4 max-h-[500px] overflow-y-auto text-base">
                             <p class="text-center text-gray-500 text-lg">아직 제출된 결과가 없습니다.</p>
                         </div>
                     </div>
                 </div>
+                    </div>
+                </div>
             </div>
+        </div>
+
+        <!-- 활동 2: 지름과 원주 관계 -->
+        <div id="activity2" class="hidden container mx-auto max-w-[95vw]">
+            <div class="flex justify-between items-center mb-12">
+                <button onclick="showMainScreen()" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-xl">
+                    ← 메인으로 돌아가기
+                </button>
+                <h1 class="text-4xl font-bold text-white">🎯 &lt;활동 2&gt; 원주가 가진 숨은 규칙 발견하기</h1>
+                <div></div>
+            </div>
+            
+            <!-- 활동 2 서브메뉴 -->
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <button onclick="showSubActivity('activity2-3')" class="card p-8 text-center hover:bg-purple-50">
+                    <div class="text-4xl mb-4">🔄</div>
+                    <div class="font-semibold text-xl">원주가 가진 규칙 발견해보기</div>
+                </button>
+                <button onclick="showSubActivity('activity2-4')" class="card p-8 text-center hover:bg-yellow-50">
+                    <div class="text-4xl mb-4">📝</div>
+                    <div class="font-semibold text-xl">원주가 가진 규칙 기록하기</div>
+                </button>
+            </div>
+            
             
             <!-- 활동 2-3: 수식관계 파악하기 -->
             <div id="activity2-3" class="hidden card p-8 mb-6">
@@ -980,6 +1007,44 @@
                         <div id="circumference-result" class="text-2xl font-bold text-blue-600"></div>
                     </div>
                 </div>
+                
+                <!-- 누적 결과 표시 영역 -->
+                <div id="accumulated-results" class="mt-6 hidden">
+                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">📊 지금까지의 결과들</h3>
+                    <div class="grid grid-cols-2 gap-6">
+                        <!-- 왼쪽: 결과 표 -->
+                        <div class="bg-gray-50 p-4 rounded-lg border-2 border-gray-200 max-h-80 overflow-y-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="bg-blue-100 border-b-2 border-blue-300">
+                                        <th class="text-center py-2 px-2 font-bold text-base">순</th>
+                                        <th class="text-center py-2 px-2 font-bold text-base">지름</th>
+                                        <th class="text-center py-2 px-2 font-bold text-base">원주</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="results-table-body">
+                                    <!-- 결과들이 여기에 표시됩니다 -->
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- 오른쪽: 관계 힌트 -->
+                        <div class="bg-gradient-to-br from-yellow-50 to-orange-50 p-6 rounded-lg border-2 border-yellow-200">
+                            <h4 class="text-xl font-bold text-center mb-4 text-orange-800">🔍 규칙을 찾아보세요!</h4>
+                            <div class="space-y-4">
+                                <div class="bg-white p-4 rounded-lg border border-orange-200">
+                                    <div class="text-base font-semibold text-gray-700 mb-3">💭 관찰해보기</div>
+                                    <div class="space-y-2 text-base">
+                                        <div>1. 지름이 커지면 원주도 커지나요?</div>
+                                        <div>2. 지름이 2배 또는 3배가 되면, 원주도 2배 또는 3배가 되나요?</div>
+                                        <div class="font-bold text-blue-600 text-lg">3. 지름에 어떤 수를 곱하면 원주가 되나요?</div>
+                                        <div class="text-sm text-gray-600 italic ml-6">(힌트: 지름을 1로 두고 굴려보세요)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <!-- 활동 2-4: 수식 기록하기 -->
@@ -992,43 +1057,32 @@
                         <div class="space-y-5">
                             <div>
                                 <label class="block text-lg font-semibold mb-2">모둠 선택:</label>
-                                <select id="team-select-3" class="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-blue-500 text-lg">
-                                    <option value="">모둠을 선택하세요</option>
-                                    <option value="모둠1">모둠1</option>
-                                    <option value="모둠2">모둠2</option>
-                                    <option value="모둠3">모둠3</option>
-                                    <option value="모둠4">모둠4</option>
-                                    <option value="모둠5">모둠5</option>
-                                    <option value="모둠6">모둠6</option>
-                                    <option value="모둠7">모둠7</option>
-                                    <option value="모둠8">모둠8</option>
-                                    <option value="모둠9">모둠9</option>
-                                </select>
+                                <div id="team-select-3" class="w-full">
+                                    <div class="text-lg font-semibold mb-3">모둠을 선택하세요:</div>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 text-lg transition-all duration-200" data-team="파랑모둠" style="background-color: #dbeafe; border-color: #3b82f6;">파랑모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-green-500 hover:bg-green-50 text-lg transition-all duration-200" data-team="초록모둠" style="background-color: #dcfce7; border-color: #22c55e;">초록모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500 hover:bg-purple-50 text-lg transition-all duration-200" data-team="보라모둠" style="background-color: #f3e8ff; border-color: #a855f7;">보라모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-red-500 hover:bg-red-50 text-lg transition-all duration-200" data-team="빨강모둠" style="background-color: #fee2e2; border-color: #ef4444;">빨강모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-yellow-500 hover:bg-yellow-50 text-lg transition-all duration-200" data-team="노랑모둠" style="background-color: #fef3c7; border-color: #eab308;">노랑모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-gray-500 hover:bg-gray-50 text-lg transition-all duration-200" data-team="하양모둠" style="background-color: #f9fafb; border-color: #6b7280;">하양모둠</button>
+                                    </div>
+                                    <div id="selected-team-3" class="mt-4 p-3 bg-blue-100 border-2 border-blue-300 rounded-lg text-lg font-semibold text-blue-800 hidden">
+                                        선택된 모둠: <span id="selected-team-name-3"></span>
+                                    </div>
+                                </div>
                             </div>
                             
                             <div>
                                 <label class="block text-lg font-semibold mb-3">🧮 원주가 가진 규칙</label>
                                 <div class="flex items-center gap-3 p-4 border-2 border-gray-300 rounded-lg bg-white">
-                                    <select id="formula-first" class="p-3 border border-gray-300 rounded text-lg">
-                                        <option value="">선택</option>
-                                        <option value="지름">지름</option>
-                                        <option value="원주">원주</option>
-                                    </select>
-                                    <select id="formula-operator" class="p-3 border border-gray-300 rounded text-lg">
-                                        <option value="">연산</option>
-                                        <option value="×">×</option>
-                                        <option value="÷">÷</option>
-                                        <option value="+">+</option>
-                                        <option value="-">-</option>
-                                    </select>
+                                    <div class="p-3 bg-gray-100 border border-gray-300 rounded text-lg font-semibold text-gray-700">지름</div>
+                                    <div class="p-3 bg-gray-100 border border-gray-300 rounded text-lg font-semibold text-gray-700">×</div>
                                     <input type="number" id="formula-number" step="0.01" placeholder="0.00" class="p-3 border border-gray-300 rounded w-24 text-lg" min="0" max="999.99" oninput="limitDecimalPlaces(this, 2)">
                                     <span class="text-xl font-bold">=</span>
-                                    <select id="formula-result" class="p-3 border border-gray-300 rounded text-lg">
-                                        <option value="">선택</option>
-                                        <option value="지름">지름</option>
-                                        <option value="원주">원주</option>
-                                    </select>
+                                    <div class="p-3 bg-gray-100 border border-gray-300 rounded text-lg font-semibold text-gray-700">원주</div>
                                 </div>
+                                <p class="text-sm text-gray-600 mt-2">💡 지름에 곱할 수를 소수 둘째자리까지 입력해보세요!</p>
                             </div>
                             
                             <button onclick="submitFormula()" class="w-full btn-primary text-white py-5 rounded-lg font-bold text-xl">
@@ -1134,24 +1188,26 @@
                 <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">🧮 규칙 적용하여 물건의 원주 계산하기</h2>
                 
                 <div class="grid md:grid-cols-2 gap-12">
-                    <div class="measurement-card">
+                    <div class="measurement-card" style="min-height: 600px;">
                         <h3 class="text-2xl font-bold mb-6 text-center">📊 모둠 데이터 확인하기</h3>
                         <div class="space-y-5">
                             <div class="flex gap-3">
                                 <div class="flex-1">
                                     <label class="block text-lg font-semibold mb-2">모둠 선택:</label>
-                                    <select id="team-select-3-2" class="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-blue-500 text-lg">
-                                        <option value="">모둠을 선택하세요</option>
-                                        <option value="모둠1">모둠1</option>
-                                        <option value="모둠2">모둠2</option>
-                                        <option value="모둠3">모둠3</option>
-                                        <option value="모둠4">모둠4</option>
-                                        <option value="모둠5">모둠5</option>
-                                        <option value="모둠6">모둠6</option>
-                                        <option value="모둠7">모둠7</option>
-                                        <option value="모둠8">모둠8</option>
-                                        <option value="모둠9">모둠9</option>
-                                    </select>
+                                    <div id="team-select-3-2" class="w-full">
+                                        <div class="text-lg font-semibold mb-3">모둠을 선택하세요:</div>
+                                        <div class="grid grid-cols-2 gap-3">
+                                            <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 text-lg transition-all duration-200" data-team="파랑모둠" style="background-color: #dbeafe; border-color: #3b82f6;">파랑모둠</button>
+                                            <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-green-500 hover:bg-green-50 text-lg transition-all duration-200" data-team="초록모둠" style="background-color: #dcfce7; border-color: #22c55e;">초록모둠</button>
+                                            <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500 hover:bg-purple-50 text-lg transition-all duration-200" data-team="보라모둠" style="background-color: #f3e8ff; border-color: #a855f7;">보라모둠</button>
+                                            <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-red-500 hover:bg-red-50 text-lg transition-all duration-200" data-team="빨강모둠" style="background-color: #fee2e2; border-color: #ef4444;">빨강모둠</button>
+                                            <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-yellow-500 hover:bg-yellow-50 text-lg transition-all duration-200" data-team="노랑모둠" style="background-color: #fef3c7; border-color: #eab308;">노랑모둠</button>
+                                            <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-gray-500 hover:bg-gray-50 text-lg transition-all duration-200" data-team="하양모둠" style="background-color: #f9fafb; border-color: #6b7280;">하양모둠</button>
+                                        </div>
+                                        <div id="selected-team-3-2" class="mt-4 p-3 bg-blue-100 border-2 border-blue-300 rounded-lg text-lg font-semibold text-blue-800 hidden">
+                                            선택된 모둠: <span id="selected-team-name-3-2"></span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="flex items-end">
                                     <button onclick="selectTeamData()" id="select-team-btn" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-lg font-bold text-lg">
@@ -1173,14 +1229,14 @@
                         </div>
                     </div>
                     
-                    <div class="measurement-card">
+                    <div class="measurement-card" style="min-height: 600px;">
                         <div class="flex justify-between items-center mb-6">
                             <h3 class="text-2xl font-bold text-center flex-1">👥 모둠 별 검토 결과</h3>
                             <button onclick="clearAllCalculations()" class="bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-lg text-lg font-bold transition-colors shadow-lg border-2 border-red-600">
                                 🗑️ 기존 자료 삭제
                             </button>
                         </div>
-                        <div id="shared-calculation-results" class="space-y-4 max-h-[500px] overflow-y-auto text-base">
+                        <div id="shared-calculation-results" class="space-y-4 max-h-[450px] overflow-y-auto text-base">
                             <p class="text-center text-gray-500 text-lg">아직 계산된 결과가 없습니다.</p>
                         </div>
                     </div>
@@ -1213,18 +1269,20 @@
                         <div class="space-y-5">
                             <div>
                                 <label class="block text-lg font-semibold mb-2">모둠 선택:</label>
-                                <select id="team-select-3-3" class="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-blue-500 text-lg">
-                                    <option value="">모둠을 선택하세요</option>
-                                    <option value="모둠1">모둠1</option>
-                                    <option value="모둠2">모둠2</option>
-                                    <option value="모둠3">모둠3</option>
-                                    <option value="모둠4">모둠4</option>
-                                    <option value="모둠5">모둠5</option>
-                                    <option value="모둠6">모둠6</option>
-                                    <option value="모둠7">모둠7</option>
-                                    <option value="모둠8">모둠8</option>
-                                    <option value="모둠9">모둠9</option>
-                                </select>
+                                <div id="team-select-3-3" class="w-full">
+                                    <div class="text-lg font-semibold mb-3">모둠을 선택하세요:</div>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 text-lg transition-all duration-200" data-team="파랑모둠" style="background-color: #dbeafe; border-color: #3b82f6;">파랑모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-green-500 hover:bg-green-50 text-lg transition-all duration-200" data-team="초록모둠" style="background-color: #dcfce7; border-color: #22c55e;">초록모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500 hover:bg-purple-50 text-lg transition-all duration-200" data-team="보라모둠" style="background-color: #f3e8ff; border-color: #a855f7;">보라모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-red-500 hover:bg-red-50 text-lg transition-all duration-200" data-team="빨강모둠" style="background-color: #fee2e2; border-color: #ef4444;">빨강모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-yellow-500 hover:bg-yellow-50 text-lg transition-all duration-200" data-team="노랑모둠" style="background-color: #fef3c7; border-color: #eab308;">노랑모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-gray-500 hover:bg-gray-50 text-lg transition-all duration-200" data-team="하양모둠" style="background-color: #f9fafb; border-color: #6b7280;">하양모둠</button>
+                                    </div>
+                                    <div id="selected-team-3-3" class="mt-4 p-3 bg-blue-100 border-2 border-blue-300 rounded-lg text-lg font-semibold text-blue-800 hidden">
+                                        선택된 모둠: <span id="selected-team-name-3-3"></span>
+                                    </div>
+                                </div>
                             </div>
                             
                             <!-- 기존 데이터 표시 영역 -->
@@ -1277,7 +1335,7 @@
             console.log('Firebase 리스너 초기화 시작');
             
             // 측정 데이터 실시간 동기화
-            const measurementQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'measurements_class2'), window.firebaseOrderBy('timestamp', 'desc'));
+            const measurementQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'measurements'), window.firebaseOrderBy('timestamp', 'desc'));
             window.firebaseOnSnapshot(measurementQuery, (snapshot) => {
                 console.log('측정 데이터 업데이트:', snapshot.size, '개 문서');
                 measurementData = {};
@@ -1297,7 +1355,7 @@
             });
             
             // 지름 데이터 실시간 동기화
-            const diameterQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'diameters_class2'), window.firebaseOrderBy('timestamp', 'desc'));
+            const diameterQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'diameters'), window.firebaseOrderBy('timestamp', 'desc'));
             window.firebaseOnSnapshot(diameterQuery, (snapshot) => {
                 console.log('지름 데이터 업데이트:', snapshot.size, '개 문서');
                 diameterData = {};
@@ -1320,7 +1378,7 @@
             });
             
             // 수식 데이터 실시간 동기화
-            const formulaQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'formulas_class2'), window.firebaseOrderBy('timestamp', 'desc'));
+            const formulaQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'formulas'), window.firebaseOrderBy('timestamp', 'desc'));
             window.firebaseOnSnapshot(formulaQuery, (snapshot) => {
                 console.log('수식 데이터 업데이트:', snapshot.size, '개 문서');
                 formulaData = {};
@@ -1348,7 +1406,7 @@
             });
             
             // 파이 이름 데이터 실시간 동기화
-            const piNameQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'piNames_class2'), window.firebaseOrderBy('timestamp', 'desc'));
+            const piNameQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'piNames'), window.firebaseOrderBy('timestamp', 'desc'));
             window.firebaseOnSnapshot(piNameQuery, (snapshot) => {
                 console.log('파이 이름 데이터 업데이트:', snapshot.size, '개 문서');
                 piNameData = {};
@@ -1365,7 +1423,7 @@
             });
             
             // 측정 방법 데이터 실시간 동기화
-            const methodsQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'methods_class2'), window.firebaseOrderBy('timestamp', 'desc'));
+            const methodsQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'methods'), window.firebaseOrderBy('timestamp', 'desc'));
             window.firebaseOnSnapshot(methodsQuery, (snapshot) => {
                 console.log('측정 방법 데이터 업데이트:', snapshot.size, '개 문서');
                 methodsData = {};
@@ -1383,7 +1441,7 @@
             });
             
             // 계산 데이터 실시간 동기화
-            const calculationQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'calculations_class2'), window.firebaseOrderBy('timestamp', 'desc'));
+            const calculationQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'calculations'), window.firebaseOrderBy('timestamp', 'desc'));
             window.firebaseOnSnapshot(calculationQuery, (snapshot) => {
                 console.log('계산 데이터 업데이트:', snapshot.size, '개 문서');
                 sharedCalculationData = {};
@@ -1403,6 +1461,19 @@
             });
         }
         
+        // 비밀번호 확인 함수
+        function confirmPassword() {
+            const password = prompt('기존 자료를 삭제하려면 비밀번호를 입력하세요:');
+            if (password === '1234') {
+                return true;
+            } else if (password === null) {
+                return false; // 취소 버튼을 눌렀을 때
+            } else {
+                alert('비밀번호가 틀렸습니다. 다시 시도해주세요.');
+                return false;
+            }
+        }
+
         // 기존 모둠 데이터 삭제 헬퍼 함수
         async function deleteExistingTeamData(collection, team) {
             try {
@@ -1418,12 +1489,15 @@
         
         // Firebase 데이터 삭제 함수들
         async function clearAllMethods() {
+            if (!confirmPassword()) {
+                return;
+            }
             if (!confirm('모든 측정 방법 데이터를 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.')) {
                 return;
             }
             
             try {
-                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'methods_class2'));
+                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'methods'));
                 const deletePromises = querySnapshot.docs.map(doc => window.firebaseDeleteDoc(doc.ref));
                 await Promise.all(deletePromises);
                 
@@ -1437,12 +1511,15 @@
         }
         
         async function clearAllMeasurements() {
+            if (!confirmPassword()) {
+                return;
+            }
             if (!confirm('모든 원주 측정 데이터를 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.')) {
                 return;
             }
             
             try {
-                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'measurements_class2'));
+                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'measurements'));
                 const deletePromises = querySnapshot.docs.map(doc => window.firebaseDeleteDoc(doc.ref));
                 await Promise.all(deletePromises);
                 
@@ -1456,12 +1533,15 @@
         }
         
         async function clearAllDiameters() {
+            if (!confirmPassword()) {
+                return;
+            }
             if (!confirm('모든 지름 측정 데이터를 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.')) {
                 return;
             }
             
             try {
-                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'diameters_class2'));
+                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'diameters'));
                 const deletePromises = querySnapshot.docs.map(doc => window.firebaseDeleteDoc(doc.ref));
                 await Promise.all(deletePromises);
                 
@@ -1475,12 +1555,15 @@
         }
         
         async function clearAllFormulas() {
+            if (!confirmPassword()) {
+                return;
+            }
             if (!confirm('모든 수식 데이터를 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.')) {
                 return;
             }
             
             try {
-                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'formulas_class2'));
+                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'formulas'));
                 const deletePromises = querySnapshot.docs.map(doc => window.firebaseDeleteDoc(doc.ref));
                 await Promise.all(deletePromises);
                 
@@ -1494,12 +1577,15 @@
         }
         
         async function clearAllPiNames() {
+            if (!confirmPassword()) {
+                return;
+            }
             if (!confirm('모든 파이 이름 데이터를 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.')) {
                 return;
             }
             
             try {
-                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'piNames_class2'));
+                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'piNames'));
                 const deletePromises = querySnapshot.docs.map(doc => window.firebaseDeleteDoc(doc.ref));
                 await Promise.all(deletePromises);
                 
@@ -1513,12 +1599,15 @@
         }
         
         async function clearAllCalculations() {
+            if (!confirmPassword()) {
+                return;
+            }
             if (!confirm('모든 계산 데이터를 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.')) {
                 return;
             }
             
             try {
-                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'calculations_class2'));
+                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'calculations'));
                 const deletePromises = querySnapshot.docs.map(doc => window.firebaseDeleteDoc(doc.ref));
                 await Promise.all(deletePromises);
                 
@@ -1539,6 +1628,15 @@
                     input.value = parts[0] + '.' + parts[1].substring(0, places);
                 }
             }
+            
+            // 입력값이 변경될 때마다 굴려보기 버튼 비활성화
+            if (input.id === 'circle-diameter-3') {
+                const rollingBtn = document.getElementById('rolling-btn-3');
+                if (rollingBtn) {
+                    rollingBtn.disabled = true;
+                    rollingBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                }
+            }
         }
         
         // 화면 전환 함수들
@@ -1556,49 +1654,76 @@
             if (activityId === 'activity1') {
                 showSubActivity1('activity1-1');
             } else if (activityId === 'activity2') {
-                showSubActivity('activity2-1');
+                showSubActivity('activity2-3');
             } else if (activityId === 'activity3') {
                 showSubActivity3('activity3-1');
             }
         }
         
         function showSubActivity1(subActivityId) {
-            document.getElementById('activity1-1').classList.remove('hidden');
+            document.getElementById('activity1-1').classList.add('hidden');
             document.getElementById('activity1-2').classList.add('hidden');
+            document.getElementById('activity1-3').classList.add('hidden');
             
-            if (subActivityId !== 'activity1-1') {
-                document.getElementById('activity1-1').classList.add('hidden');
-                document.getElementById(subActivityId).classList.remove('hidden');
-            }
+            document.getElementById(subActivityId).classList.remove('hidden');
             
             if (subActivityId === 'activity1-1') {
                 displayMethodsResults();
             } else if (subActivityId === 'activity1-2') {
                 displayMeasurementResults();
+            } else if (subActivityId === 'activity1-3') {
+                showDiameterSubActivity('activity1-3-1');
             }
         }
         
         function showSubActivity(subActivityId) {
             // 모든 서브 활동 숨기기
-            document.getElementById('activity2-1').classList.remove('hidden');
-            document.getElementById('activity2-1-5').classList.add('hidden');
-            document.getElementById('activity2-2').classList.add('hidden');
             document.getElementById('activity2-3').classList.add('hidden');
             document.getElementById('activity2-4').classList.add('hidden');
             
-            if (subActivityId !== 'activity2-1') {
-                document.getElementById('activity2-1').classList.add('hidden');
-                document.getElementById(subActivityId).classList.remove('hidden');
-            }
+            document.getElementById(subActivityId).classList.remove('hidden');
             
-            if (subActivityId === 'activity2-1') {
-                initializeDiameterDemo();
-            } else if (subActivityId === 'activity2-1-5') {
-                // 지름 측정 시뮬레이터는 이미 초기화됨
-            } else if (subActivityId === 'activity2-2') {
-                loadMeasurementDataForDiameter();
-            } else if (subActivityId === 'activity2-4') {
+            if (subActivityId === 'activity2-3') {
                 loadDiameterDataForFormula();
+            }
+        }
+        
+        function showDiameterSubActivity(subActivityId) {
+            // 활동1의 지름 측정하기 하위 활동들
+            if (subActivityId.startsWith('activity1-3-')) {
+                // 활동1-3 내의 모든 하위 활동 숨기기
+                document.getElementById('activity1-3-1').classList.add('hidden');
+                document.getElementById('activity1-3-2').classList.add('hidden');
+                document.getElementById('activity1-3-3').classList.add('hidden');
+                
+                // 선택된 하위 활동 보이기
+                document.getElementById(subActivityId).classList.remove('hidden');
+                
+                // 각 하위 활동별 초기화 로직
+                if (subActivityId === 'activity1-3-1') {
+                    initializeDiameterDemo1();
+                } else if (subActivityId === 'activity1-3-2') {
+                    initializeDiameterSimulator1();
+                } else if (subActivityId === 'activity1-3-3') {
+                    loadMeasurementDataForDiameter1();
+                }
+            } else {
+                // 활동2의 지름 측정하기 하위 활동들 (기존 코드)
+                document.getElementById('activity2-1').classList.add('hidden');
+                document.getElementById('activity2-1-5').classList.add('hidden');
+                document.getElementById('activity2-2').classList.add('hidden');
+                
+                // 선택된 하위 활동 보이기
+                document.getElementById(subActivityId).classList.remove('hidden');
+                
+                // 각 하위 활동별 초기화 로직
+                if (subActivityId === 'activity2-1') {
+                    initializeDiameterDemo();
+                } else if (subActivityId === 'activity2-1-5') {
+                    // 지름 측정 시뮬레이터는 이미 초기화됨
+                } else if (subActivityId === 'activity2-2') {
+                    loadMeasurementDataForDiameter();
+                }
             }
         }
         
@@ -1621,7 +1746,7 @@
         
         // 활동 1-1: 측정방법 제출
         async function submitMethods() {
-            const team = document.getElementById('team-select-1-1').value;
+            const team = getSelectedTeam('team-select-1-1');
             const method1 = document.getElementById('method1-1').value;
             const method2 = document.getElementById('method2-1').value;
             const method3 = document.getElementById('method3-1').value;
@@ -1633,10 +1758,10 @@
             
             try {
                 // 기존 모둠 데이터 삭제
-                await deleteExistingTeamData('methods_class2', team);
+                await deleteExistingTeamData('methods', team);
                 
                 // Firebase에 새 데이터 저장
-                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'methods_class2'), {
+                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'methods'), {
                     team: team,
                     method1: method1,
                     method2: method2 || '',
@@ -1695,7 +1820,19 @@
         }
         
         function clearMethodsForm() {
-            document.getElementById('team-select-1-1').value = '';
+            // team-select-1-1 초기화
+            const container1_1 = document.getElementById('team-select-1-1');
+            if (container1_1) {
+                const selectedButton = container1_1.querySelector('.team-option.ring-4');
+                if (selectedButton) {
+                    selectedButton.classList.remove('ring-4', 'ring-blue-500', 'bg-blue-100');
+                    selectedButton.style.transform = 'scale(1)';
+                }
+                const selectedTeamDiv = container1_1.querySelector('[id^="selected-team-"]');
+                if (selectedTeamDiv) {
+                    selectedTeamDiv.classList.add('hidden');
+                }
+            }
             document.getElementById('method1-1').value = '';
             document.getElementById('method2-1').value = '';
             document.getElementById('method3-1').value = '';
@@ -1703,7 +1840,7 @@
         
         // 활동 1-2: 측정 데이터 제출
         async function submitMeasurement() {
-            const team = document.getElementById('team-select-1-2').value;
+            const team = getSelectedTeam('team-select-1-2');
             const can = document.getElementById('can-circumference').value;
             const tuna = document.getElementById('tuna-circumference').value;
             const puzzle = document.getElementById('puzzle-circumference').value;
@@ -1718,7 +1855,7 @@
                 await deleteExistingTeamData('measurements', team);
                 
                 // Firebase에 새 데이터 저장
-                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'measurements_class2'), {
+                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'measurements'), {
                     team: team,
                     can: parseFloat(can),
                     tuna: parseFloat(tuna),
@@ -1749,33 +1886,55 @@
                 return;
             }
             
-            let html = '';
+            // 표 형식으로 결과 표시
+            let html = `
+                <div class="overflow-x-auto">
+                    <table class="w-full border-collapse border-2 border-gray-300 rounded-lg overflow-hidden">
+                        <thead>
+                            <tr class="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+                                <th class="border-2 border-gray-300 px-4 py-3 text-lg font-bold">모둠명</th>
+                                <th class="border-2 border-gray-300 px-4 py-3 text-lg font-bold">🥤 음료수 캔 (cm)</th>
+                                <th class="border-2 border-gray-300 px-4 py-3 text-lg font-bold">🥫 참치 통조림 (cm)</th>
+                                <th class="border-2 border-gray-300 px-4 py-3 text-lg font-bold">🧩 퍼즐통 (cm)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+            
             for (const [team, data] of Object.entries(measurementData)) {
                 html += `
-                    <div class="bg-white p-4 rounded-xl shadow-lg border-l-4 border-green-500 mb-3">
-                        <h4 class="font-bold text-lg text-green-600 mb-3 text-center bg-green-50 py-2 rounded-lg">${team} - 원주 측정 결과</h4>
-                        <div class="grid grid-cols-1 gap-3">
-                            <div class="bg-blue-50 p-3 rounded-lg border-l-4 border-blue-400 flex justify-between items-center">
-                                <div class="font-semibold text-sm text-blue-700">🥤 음료수 캔</div>
-                                <div class="font-bold text-lg text-blue-600">원주: ${data.can}cm</div>
-                            </div>
-                            <div class="bg-green-50 p-3 rounded-lg border-l-4 border-green-400 flex justify-between items-center">
-                                <div class="font-semibold text-sm text-green-700">🥫 참치 통조림</div>
-                                <div class="font-bold text-lg text-green-600">원주: ${data.tuna}cm</div>
-                            </div>
-                            <div class="bg-yellow-50 p-3 rounded-lg border-l-4 border-yellow-400 flex justify-between items-center">
-                                <div class="font-semibold text-sm text-yellow-700">🧩 퍼즐통</div>
-                                <div class="font-bold text-lg text-yellow-600">원주: ${data.puzzle}cm</div>
-                            </div>
-                        </div>
-                    </div>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border-2 border-gray-300 px-4 py-3 text-center font-semibold text-lg">${team}</td>
+                        <td class="border-2 border-gray-300 px-4 py-3 text-center text-lg">${data.can}</td>
+                        <td class="border-2 border-gray-300 px-4 py-3 text-center text-lg">${data.tuna}</td>
+                        <td class="border-2 border-gray-300 px-4 py-3 text-center text-lg">${data.puzzle}</td>
+                    </tr>
                 `;
             }
+            
+            html += `
+                        </tbody>
+                    </table>
+                </div>
+            `;
+            
             resultsDiv.innerHTML = html;
         }
         
         function clearMeasurementForm() {
-            document.getElementById('team-select-1-2').value = '';
+            // team-select-1-2 초기화
+            const container1_2 = document.getElementById('team-select-1-2');
+            if (container1_2) {
+                const selectedButton = container1_2.querySelector('.team-option.ring-4');
+                if (selectedButton) {
+                    selectedButton.classList.remove('ring-4', 'ring-blue-500', 'bg-blue-100');
+                    selectedButton.style.transform = 'scale(1)';
+                }
+                const selectedTeamDiv = container1_2.querySelector('[id^="selected-team-"]');
+                if (selectedTeamDiv) {
+                    selectedTeamDiv.classList.add('hidden');
+                }
+            }
             document.getElementById('can-circumference').value = '';
             document.getElementById('tuna-circumference').value = '';
             document.getElementById('puzzle-circumference').value = '';
@@ -1850,40 +2009,227 @@
             });
         }
         
-        // 활동 2-2: 지름 데이터 제출
-        function loadMeasurementDataForDiameter() {
-            displayDiameterResults();
+        // 활동 1-3-1: 지름 데모 초기화 (활동1용)
+        function initializeDiameterDemo1() {
+            const movablePoint = document.getElementById('movable-point-1');
+            const chordLine = document.getElementById('chord-line-1');
+            const chordLengthDisplay = document.getElementById('chord-length-1');
+            const diameterMessage = document.getElementById('diameter-message-1');
             
-            // 모둠 선택 시 데이터 로드 이벤트 추가
-            document.getElementById('team-select-2').addEventListener('change', function() {
-                const selectedTeam = this.value;
-                if (selectedTeam && measurementData[selectedTeam]) {
-                    const data = measurementData[selectedTeam];
-                    document.getElementById('can-circumference-2').textContent = `원주: ${data.can}cm`;
-                    document.getElementById('tuna-circumference-2').textContent = `원주: ${data.tuna}cm`;
-                    document.getElementById('puzzle-circumference-2').textContent = `원주: ${data.puzzle}cm`;
-                    
-                    // 기존 지름 데이터가 있으면 로드
-                    if (diameterData[selectedTeam]) {
-                        const diamData = diameterData[selectedTeam];
-                        document.getElementById('can-diameter').value = diamData.canDiam;
-                        document.getElementById('tuna-diameter').value = diamData.tunaDiam;
-                        document.getElementById('puzzle-diameter').value = diamData.puzzleDiam;
-                    }
+            let isDragging = false;
+            
+            movablePoint.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                e.preventDefault();
+            });
+            
+            document.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                
+                const svg = movablePoint.closest('svg');
+                const rect = svg.getBoundingClientRect();
+                const centerX = 200;
+                const centerY = 200;
+                const radius = 150;
+                
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
+                
+                // 마우스 위치를 원 위의 점으로 변환
+                const dx = mouseX - centerX;
+                const dy = mouseY - centerY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                const pointX = centerX + (dx / distance) * radius;
+                const pointY = centerY + (dy / distance) * radius;
+                
+                movablePoint.setAttribute('cx', pointX);
+                movablePoint.setAttribute('cy', pointY);
+                
+                // 선분 업데이트
+                chordLine.setAttribute('x1', pointX);
+                chordLine.setAttribute('y1', pointY);
+                
+                // 선분의 길이 계산 (고정점은 (200, 350))
+                const fixedX = 200;
+                const fixedY = 350;
+                const chordLength = Math.sqrt((pointX - fixedX) ** 2 + (pointY - fixedY) ** 2);
+                const chordLengthCm = (chordLength / 150) * 15; // 150px = 15cm로 스케일링
+                
+                chordLengthDisplay.textContent = chordLengthCm.toFixed(2) + ' cm';
+                
+                // 선분이 중심을 지나는지 확인 (더 정확한 방법)
+                const distanceToCenter = Math.abs((fixedY - pointY) * centerX - (fixedX - pointX) * centerY + fixedX * pointY - pointX * fixedY) / 
+                                       Math.sqrt((fixedY - pointY) ** 2 + (fixedX - pointX) ** 2);
+                
+                const isDiameter = distanceToCenter < 5 && Math.abs(chordLengthCm - 30) < 1; // 중심을 지나고 지름 길이에 가까울 때
+                
+                if (isDiameter) {
+                    document.getElementById('diameter-label-1').textContent = '(지름)';
+                    diameterMessage.innerHTML = '<div style="background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: white; padding: 12px; border-radius: 10px; font-weight: bold; font-size: 1.2em; text-align: center; box-shadow: 0 4px 15px rgba(238, 90, 36, 0.3); animation: pulse 1s infinite; margin-top: 10px;">🎯 지름은 원의 중심을 지나는 가장 긴 선분입니다!</div>';
                 } else {
-                    // 선택 해제 시 폼 초기화
-                    document.getElementById('can-circumference-2').textContent = '원주: 모둠을 선택하면 자동 입력 됨';
-                    document.getElementById('tuna-circumference-2').textContent = '원주: 모둠을 선택하면 자동 입력 됨';
-                    document.getElementById('puzzle-circumference-2').textContent = '원주: 모둠을 선택하면 자동 입력 됨';
-                    document.getElementById('can-diameter').value = '';
-                    document.getElementById('tuna-diameter').value = '';
-                    document.getElementById('puzzle-diameter').value = '';
+                    document.getElementById('diameter-label-1').textContent = '';
+                    diameterMessage.innerHTML = '';
                 }
+            });
+            
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
             });
         }
         
+        // 활동 1-3-3: 지름 데이터 제출 (활동1용)
+        function loadMeasurementDataForDiameter1() {
+            displayDiameterResults1();
+            // 이벤트 리스너는 initializeTeamSelection()에서 통합 처리됨
+        }
+        
+        async function submitDiameter1() {
+            const team = getSelectedTeam('team-select-1-3');
+            const canDiam = document.getElementById('can-diameter-1-3').value;
+            const tunaDiam = document.getElementById('tuna-diameter-1-3').value;
+            const puzzleDiam = document.getElementById('puzzle-diameter-1-3').value;
+            
+            if (!team || !canDiam || !tunaDiam || !puzzleDiam) {
+                alert('모든 항목을 입력해주세요!');
+                return;
+            }
+            
+            if (!measurementData[team]) {
+                alert('먼저 활동 1-2에서 원주를 측정해주세요!');
+                return;
+            }
+            
+            const data = measurementData[team];
+            console.log('지름 제출 시 measurementData:', data); // 디버깅용
+            
+            // 안전한 데이터 처리
+            const canCirc = data.can || 0;
+            const tunaCirc = data.tuna || 0;
+            const puzzleCirc = data.puzzle || 0;
+            
+            console.log('처리된 원주 데이터:', { canCirc, tunaCirc, puzzleCirc }); // 디버깅용
+            
+            try {
+                // 기존 모둠 데이터 삭제
+                await deleteExistingTeamData('diameters', team);
+                
+                // Firebase에 새 데이터 저장
+                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'diameters'), {
+                    team: team,
+                    canCirc: canCirc,
+                    tunaCirc: tunaCirc,
+                    puzzleCirc: puzzleCirc,
+                    canDiam: parseFloat(canDiam),
+                    tunaDiam: parseFloat(tunaDiam),
+                    puzzleDiam: parseFloat(puzzleDiam),
+                    timestamp: new Date()
+                });
+                
+                clearDiameterForm1();
+                alert('제출이 완료되었습니다! 🎉');
+            } catch (error) {
+                console.error('데이터 저장 중 오류 발생:', error);
+                alert('데이터 저장 중 오류가 발생했습니다. 다시 시도해주세요.');
+            }
+        }
+        
+        function displayDiameterResults1() {
+            const resultsDiv = document.getElementById('diameter-results-1');
+            console.log('displayDiameterResults1 호출, diameterData:', diameterData); // 디버깅용
+            if (Object.keys(diameterData).length === 0) {
+                resultsDiv.innerHTML = '<p class="text-center text-gray-500 text-xl">아직 제출된 결과가 없습니다.</p>';
+                return;
+            }
+            
+            // 표 형식으로 결과 표시
+            let html = `
+                <div class="overflow-x-auto">
+                    <table class="w-full border-collapse border-2 border-gray-300 rounded-lg overflow-hidden">
+                        <thead>
+                            <tr class="bg-gradient-to-r from-green-500 to-blue-600 text-white">
+                                <th class="border-2 border-gray-300 px-4 py-3 text-lg font-bold">모둠명</th>
+                                <th class="border-2 border-gray-300 px-4 py-3 text-lg font-bold">🥤 음료수 캔 (cm)</th>
+                                <th class="border-2 border-gray-300 px-4 py-3 text-lg font-bold">🥫 참치 통조림 (cm)</th>
+                                <th class="border-2 border-gray-300 px-4 py-3 text-lg font-bold">🧩 퍼즐통 (cm)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+            
+            for (const [team, data] of Object.entries(diameterData)) {
+                console.log(`${team} 데이터:`, data); // 디버깅용
+                html += `
+                    <tr class="hover:bg-gray-50">
+                        <td class="border-2 border-gray-300 px-4 py-3 text-center font-semibold text-lg">${team}</td>
+                        <td class="border-2 border-gray-300 px-4 py-3 text-center text-lg">${data.canDiam || '-'}</td>
+                        <td class="border-2 border-gray-300 px-4 py-3 text-center text-lg">${data.tunaDiam || '-'}</td>
+                        <td class="border-2 border-gray-300 px-4 py-3 text-center text-lg">${data.puzzleDiam || '-'}</td>
+                    </tr>
+                `;
+            }
+            
+            html += `
+                        </tbody>
+                    </table>
+                </div>
+            `;
+            
+            resultsDiv.innerHTML = html;
+        }
+        
+        function clearDiameterForm1() {
+            // team-select-1-3 초기화
+            const container1_3 = document.getElementById('team-select-1-3');
+            if (container1_3) {
+                const selectedButton = container1_3.querySelector('.team-option.ring-4');
+                if (selectedButton) {
+                    selectedButton.classList.remove('ring-4', 'ring-blue-500', 'bg-blue-100');
+                    selectedButton.style.transform = 'scale(1)';
+                }
+                const selectedTeamDiv = container1_3.querySelector('[id^="selected-team-"]');
+                if (selectedTeamDiv) {
+                    selectedTeamDiv.classList.add('hidden');
+                }
+            }
+            document.getElementById('can-circumference-1-3').textContent = '원주: 모둠을 선택하면 자동 입력 됨';
+            document.getElementById('tuna-circumference-1-3').textContent = '원주: 모둠을 선택하면 자동 입력 됨';
+            document.getElementById('puzzle-circumference-1-3').textContent = '원주: 모둠을 선택하면 자동 입력 됨';
+            document.getElementById('can-diameter-1-3').value = '';
+            document.getElementById('tuna-diameter-1-3').value = '';
+            document.getElementById('puzzle-diameter-1-3').value = '';
+        }
+        
+        async function clearAllDiameters1() {
+            if (!confirmPassword()) {
+                return;
+            }
+            if (!confirm('모든 지름 측정 데이터를 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.')) {
+                return;
+            }
+            
+            try {
+                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'diameters'));
+                const deletePromises = querySnapshot.docs.map(doc => window.firebaseDeleteDoc(doc.ref));
+                await Promise.all(deletePromises);
+                
+                diameterData = {};
+                displayDiameterResults1();
+                alert('지름 측정 데이터가 모두 삭제되었습니다! 🗑️');
+            } catch (error) {
+                console.error('데이터 삭제 중 오류 발생:', error);
+                alert('데이터 삭제 중 오류가 발생했습니다.');
+            }
+        }
+        
+        // 활동 2-2: 지름 데이터 제출
+        function loadMeasurementDataForDiameter() {
+            displayDiameterResults();
+            // 이벤트 리스너는 initializeTeamSelection()에서 통합 처리됨
+        }
+        
         async function submitDiameter() {
-            const team = document.getElementById('team-select-2').value;
+            const team = getSelectedTeam('team-select-2');
             const canDiam = document.getElementById('can-diameter').value;
             const tunaDiam = document.getElementById('tuna-diameter').value;
             const puzzleDiam = document.getElementById('puzzle-diameter').value;
@@ -1913,7 +2259,7 @@
                 await deleteExistingTeamData('diameters', team);
                 
                 // Firebase에 새 데이터 저장
-                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'diameters_class2'), {
+                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'diameters'), {
                     team: team,
                     canCirc: canCirc,
                     tunaCirc: tunaCirc,
@@ -1940,49 +2286,56 @@
                 return;
             }
             
-            let html = '';
+            // 표 형식으로 결과 표시
+            let html = `
+                <div class="overflow-x-auto">
+                    <table class="w-full border-collapse border-2 border-gray-300 rounded-lg overflow-hidden">
+                        <thead>
+                            <tr class="bg-gradient-to-r from-green-500 to-blue-600 text-white">
+                                <th class="border-2 border-gray-300 px-4 py-3 text-lg font-bold">모둠명</th>
+                                <th class="border-2 border-gray-300 px-4 py-3 text-lg font-bold">🥤 음료수 캔 (cm)</th>
+                                <th class="border-2 border-gray-300 px-4 py-3 text-lg font-bold">🥫 참치 통조림 (cm)</th>
+                                <th class="border-2 border-gray-300 px-4 py-3 text-lg font-bold">🧩 퍼즐통 (cm)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+            
             for (const [team, data] of Object.entries(diameterData)) {
                 console.log(`${team} 데이터:`, data); // 디버깅용
                 html += `
-                    <div class="bg-white p-4 rounded-xl shadow-lg border-l-4 border-green-500 mb-3">
-                        <h4 class="font-bold text-lg text-green-600 mb-3 text-center bg-green-50 py-2 rounded-lg">${team} - 지름 측정 결과</h4>
-                        <div class="grid grid-cols-1 gap-3">
-                            <div class="bg-blue-50 p-3 rounded-lg border-l-4 border-blue-400">
-                                <div class="flex justify-between items-center mb-1">
-                                    <div class="font-semibold text-sm text-blue-700">🥤 음료수 캔</div>
-                                </div>
-                                <div class="flex justify-between text-sm">
-                                    <span class="text-blue-600">원주: ${data.canCirc || '측정 안됨'}cm</span>
-                                    <span class="font-bold text-blue-800">지름: ${data.canDiam || '입력 안됨'}cm</span>
-                                </div>
-                            </div>
-                            <div class="bg-green-50 p-3 rounded-lg border-l-4 border-green-400">
-                                <div class="flex justify-between items-center mb-1">
-                                    <div class="font-semibold text-sm text-green-700">🥫 참치 통조림</div>
-                                </div>
-                                <div class="flex justify-between text-sm">
-                                    <span class="text-green-600">원주: ${data.tunaCirc || '측정 안됨'}cm</span>
-                                    <span class="font-bold text-green-800">지름: ${data.tunaDiam || '입력 안됨'}cm</span>
-                                </div>
-                            </div>
-                            <div class="bg-yellow-50 p-3 rounded-lg border-l-4 border-yellow-400">
-                                <div class="flex justify-between items-center mb-1">
-                                    <div class="font-semibold text-sm text-yellow-700">🧩 퍼즐통</div>
-                                </div>
-                                <div class="flex justify-between text-sm">
-                                    <span class="text-yellow-600">원주: ${data.puzzleCirc || '측정 안됨'}cm</span>
-                                    <span class="font-bold text-yellow-800">지름: ${data.puzzleDiam || '입력 안됨'}cm</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border-2 border-gray-300 px-4 py-3 text-center font-semibold text-lg">${team}</td>
+                        <td class="border-2 border-gray-300 px-4 py-3 text-center text-lg">${data.canDiam || '-'}</td>
+                        <td class="border-2 border-gray-300 px-4 py-3 text-center text-lg">${data.tunaDiam || '-'}</td>
+                        <td class="border-2 border-gray-300 px-4 py-3 text-center text-lg">${data.puzzleDiam || '-'}</td>
+                    </tr>
                 `;
             }
+            
+            html += `
+                        </tbody>
+                    </table>
+                </div>
+            `;
+            
             resultsDiv.innerHTML = html;
         }
         
         function clearDiameterForm() {
-            document.getElementById('team-select-2').value = '';
+            // team-select-2 초기화
+            const container2 = document.getElementById('team-select-2');
+            if (container2) {
+                const selectedButton = container2.querySelector('.team-option.ring-4');
+                if (selectedButton) {
+                    selectedButton.classList.remove('ring-4', 'ring-blue-500', 'bg-blue-100');
+                    selectedButton.style.transform = 'scale(1)';
+                }
+                const selectedTeamDiv = container2.querySelector('[id^="selected-team-"]');
+                if (selectedTeamDiv) {
+                    selectedTeamDiv.classList.add('hidden');
+                }
+            }
             document.getElementById('can-circumference-2').textContent = '원주: 모둠을 선택하면 자동 입력 됨';
             document.getElementById('tuna-circumference-2').textContent = '원주: 모둠을 선택하면 자동 입력 됨';
             document.getElementById('puzzle-circumference-2').textContent = '원주: 모둠을 선택하면 자동 입력 됨';
@@ -1990,6 +2343,9 @@
             document.getElementById('tuna-diameter').value = '';
             document.getElementById('puzzle-diameter').value = '';
         }
+        
+        // 누적 결과를 저장할 배열
+        let accumulatedResults = [];
         
         // 활동 2-3: 굴리기 애니메이션
         function startRolling() {
@@ -2003,6 +2359,7 @@
             const container = document.getElementById('rolling-area');
             const resultDiv = document.getElementById('rolling-result');
             const circumferenceResult = document.getElementById('circumference-result');
+            const accumulatedDiv = document.getElementById('accumulated-results');
             
             // 기존 애니메이션 정리
             container.innerHTML = '';
@@ -2110,17 +2467,62 @@
                 } else {
                     // 애니메이션 완료
                     const approximateCircumference = diameter * 3.14;
-                    circumferenceResult.innerHTML = `
-                        <div class="text-lg">지름 ${diameter}cm인 원이 한 바퀴 굴러간 거리</div>
-                        <div class="text-xl font-bold mt-2">=</div>
-                        <div class="text-lg">지름 ${diameter}cm인 원의 원주</div>
-                        <div class="text-3xl font-bold text-red-600 mt-3">약 ${approximateCircumference.toFixed(2)} cm</div>
-                    `;
+                    circumferenceResult.innerHTML = `지름 ${diameter}인 원의 원주 = ${approximateCircumference.toFixed(2)}`;
                     resultDiv.classList.remove('hidden');
+                    
+                    // 결과를 누적 배열에 추가
+                    addToAccumulatedResults(diameter, approximateCircumference.toFixed(2));
                 }
             }
             
             animate();
+        }
+        
+        // 누적 결과에 새 결과 추가
+        function addToAccumulatedResults(diameter, circumference) {
+            // 새 결과 추가
+            accumulatedResults.push({
+                diameter: diameter,
+                circumference: circumference
+            });
+            
+            // 10개를 초과하면 가장 오래된 것 제거
+            if (accumulatedResults.length > 10) {
+                accumulatedResults.shift();
+            }
+            
+            // 결과 표시 업데이트
+            updateAccumulatedResultsDisplay();
+        }
+        
+        // 누적 결과 표시 업데이트
+        function updateAccumulatedResultsDisplay() {
+            const resultsTableBody = document.getElementById('results-table-body');
+            const accumulatedDiv = document.getElementById('accumulated-results');
+            const calculationHint = document.getElementById('calculation-hint');
+            
+            if (accumulatedResults.length === 0) {
+                accumulatedDiv.classList.add('hidden');
+                return;
+            }
+            
+            accumulatedDiv.classList.remove('hidden');
+            
+            // 표 업데이트
+            let html = '';
+            accumulatedResults.forEach((result, index) => {
+                html += `
+                    <tr class="border-b border-gray-200 hover:bg-blue-50">
+                        <td class="text-center py-2 px-2 font-bold text-base">${index + 1}</td>
+                        <td class="text-center py-2 px-2 font-bold text-base">${result.diameter}</td>
+                        <td class="text-center py-2 px-2 font-bold text-base">${result.circumference}</td>
+                    </tr>
+                `;
+            });
+            
+            resultsTableBody.innerHTML = html;
+            
+            // 오른쪽 힌트 영역 업데이트 (현재는 정적이므로 업데이트 불필요)
         }
         
         function zoomIn() {
@@ -2136,34 +2538,19 @@
         // 활동 2-4: 수식 제출
         function loadDiameterDataForFormula() {
             displayFormulaResults();
-            
-            // 모둠 선택 시 데이터 로드 이벤트 추가
-            document.getElementById('team-select-3').addEventListener('change', function() {
-                const selectedTeam = this.value;
-                if (selectedTeam && diameterData[selectedTeam]) {
-                    // 기존 수식 데이터가 있으면 로드
-                    if (formulaData[selectedTeam]) {
-                        document.getElementById('formula-relation').value = formulaData[selectedTeam].formula;
-                    }
-                } else {
-                    document.getElementById('formula-relation').value = '';
-                }
-            });
+            // 이벤트 리스너는 initializeTeamSelection()에서 통합 처리됨
         }
         
         async function submitFormula() {
-            const team = document.getElementById('team-select-3').value;
-            const first = document.getElementById('formula-first').value;
-            const operator = document.getElementById('formula-operator').value;
+            const team = getSelectedTeam('team-select-3');
             const number = document.getElementById('formula-number').value;
-            const result = document.getElementById('formula-result').value;
             
-            if (!team || !first || !operator || !number || !result) {
-                alert('모든 항목을 입력해주세요!');
+            if (!team || !number) {
+                alert('모둠을 선택하고 숫자를 입력해주세요!');
                 return;
             }
             
-            const formula = `${first} ${operator} ${number} = ${result}`;
+            const formula = `지름 × ${number} = 원주`;
             
             try {
                 console.log('수식 제출 시작:', { team, formula }); // 디버깅용
@@ -2172,7 +2559,7 @@
                 await deleteExistingTeamData('formulas', team);
                 
                 // Firebase에 새 데이터 저장
-                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'formulas_class2'), {
+                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'formulas'), {
                     team: team,
                     formula: formula,
                     timestamp: new Date()
@@ -2259,11 +2646,20 @@
         }
         
         function clearFormulaForm() {
-            document.getElementById('team-select-3').value = '';
-            document.getElementById('formula-first').value = '';
-            document.getElementById('formula-operator').value = '';
+            // team-select-3 초기화
+            const container3 = document.getElementById('team-select-3');
+            if (container3) {
+                const selectedButton = container3.querySelector('.team-option.ring-4');
+                if (selectedButton) {
+                    selectedButton.classList.remove('ring-4', 'ring-blue-500', 'bg-blue-100');
+                    selectedButton.style.transform = 'scale(1)';
+                }
+                const selectedTeamDiv = container3.querySelector('[id^="selected-team-"]');
+                if (selectedTeamDiv) {
+                    selectedTeamDiv.classList.add('hidden');
+                }
+            }
             document.getElementById('formula-number').value = '';
-            document.getElementById('formula-result').value = '';
         }
         
         // 활동 3-1: 수식 계산
@@ -2285,6 +2681,9 @@
             
             // 비교 결과 숨기기 (새로 계산할 때)
             document.getElementById('comparison-result').classList.add('hidden');
+            
+            // 굴려보기 결과 숨기기 (새로 계산할 때)
+            document.getElementById('rolling-result-3').classList.add('hidden');
             
             // 굴려보기 버튼 활성화
             const rollingBtn = document.getElementById('rolling-btn-3');
@@ -2435,6 +2834,11 @@
                     
                     // 비교 결과 표시
                     showComparison(diameter);
+                    
+                    // 굴려보기 버튼 비활성화 (다음 턴을 위해)
+                    const rollingBtn = document.getElementById('rolling-btn-3');
+                    rollingBtn.disabled = true;
+                    rollingBtn.classList.add('opacity-50', 'cursor-not-allowed');
                 }
             }
             
@@ -2506,7 +2910,7 @@
         }
         
         function selectTeamData() {
-            const selectedTeam = document.getElementById('team-select-3-2').value;
+            const selectedTeam = getSelectedTeam('team-select-3-2');
             const teamDataDisplay = document.getElementById('team-data-display');
             const measurementDataDisplay = document.getElementById('measurement-data-display');
             const selectedTeamName = document.getElementById('selected-team-name');
@@ -2525,21 +2929,21 @@
             const diamData = diameterData[selectedTeam];
             
             let html = `
-                <div class="grid grid-cols-3 gap-3">
-                    <div class="bg-blue-50 p-3 rounded-lg text-center">
-                        <div class="font-semibold text-sm">🥤 음료수 캔</div>
-                        <div class="text-xs mt-1">실제 측정한 원주: ${circumData.can}cm</div>
-                        <div class="text-xs">실제 측정한 지름: ${diamData.canDiam}cm</div>
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="bg-blue-50 p-4 rounded-lg text-center">
+                        <div class="font-semibold text-lg">🥤 음료수 캔</div>
+                        <div class="text-base mt-2">실제 측정한 원주: ${circumData.can}cm</div>
+                        <div class="text-base">실제 측정한 지름: ${diamData.canDiam}cm</div>
                     </div>
-                    <div class="bg-green-50 p-3 rounded-lg text-center">
-                        <div class="font-semibold text-sm">🥫 참치 통조림</div>
-                        <div class="text-xs mt-1">실제 측정한 원주: ${circumData.tuna}cm</div>
-                        <div class="text-xs">실제 측정한 지름: ${diamData.tunaDiam}cm</div>
+                    <div class="bg-green-50 p-4 rounded-lg text-center">
+                        <div class="font-semibold text-lg">🥫 참치 통조림</div>
+                        <div class="text-base mt-2">실제 측정한 원주: ${circumData.tuna}cm</div>
+                        <div class="text-base">실제 측정한 지름: ${diamData.tunaDiam}cm</div>
                     </div>
-                    <div class="bg-yellow-50 p-3 rounded-lg text-center">
-                        <div class="font-semibold text-sm">🧩 퍼즐통</div>
-                        <div class="text-xs mt-1">실제 측정한 원주: ${circumData.puzzle}cm</div>
-                        <div class="text-xs">실제 측정한 지름: ${diamData.puzzleDiam}cm</div>
+                    <div class="bg-yellow-50 p-4 rounded-lg text-center">
+                        <div class="font-semibold text-lg">🧩 퍼즐통</div>
+                        <div class="text-base mt-2">실제 측정한 원주: ${circumData.puzzle}cm</div>
+                        <div class="text-base">실제 측정한 지름: ${diamData.puzzleDiam}cm</div>
                     </div>
                 </div>
             `;
@@ -2603,7 +3007,7 @@
                 await deleteExistingTeamData('calculations', selectedTeam);
                 
                 // Firebase에 새 데이터 저장
-                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'calculations_class2'), {
+                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'calculations'), {
                     ...calculationData,
                     timestamp: new Date()
                 });
@@ -2623,36 +3027,79 @@
             
             calcTeamName.textContent = selectedTeam;
             resultsDiv.innerHTML = `
-                <div class="space-y-4">
-                    <div class="bg-blue-50 p-4 rounded-lg">
-                        <h4 class="font-semibold text-center mb-2">🥤 음료수 캔</h4>
-                        <div class="text-sm space-y-1">
-                            <div>실제 측정한 원주: <span class="font-bold text-blue-600">${circumData.can}cm</span></div>
-                            <div>규칙으로 계산: ${diamData.canDiam} × 3.14 = <span class="font-bold text-green-600">${canCalculated.toFixed(2)}cm</span></div>
-                            <div>차이: <span class="font-bold text-red-600">${canDiff.toFixed(2)}cm</span> 
-                                <span class="text-xs ${canDiff < 1 ? 'text-green-600' : 'text-orange-600'}">${canDiff < 1 ? '(매우 정확!)' : '(측정 오차 있음)'}</span>
-                            </div>
+                <div class="grid grid-cols-4 gap-4">
+                    <!-- 왼쪽 영역: 항목 이름들 -->
+                    <div class="space-y-2">
+                        <div class="bg-blue-50 p-3 rounded-lg border-l-4 border-blue-400 h-24 flex items-center">
+                            <div class="font-semibold text-lg text-blue-700">🥤 음료수 캔</div>
+                        </div>
+                        <div class="bg-green-50 p-3 rounded-lg border-l-4 border-green-400 h-24 flex items-center">
+                            <div class="font-semibold text-lg text-green-700">🥫 참치 통조림</div>
+                        </div>
+                        <div class="bg-yellow-50 p-3 rounded-lg border-l-4 border-yellow-400 h-24 flex items-center">
+                            <div class="font-semibold text-lg text-yellow-700">🧩 퍼즐통</div>
                         </div>
                     </div>
                     
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <h4 class="font-semibold text-center mb-2">🥫 참치 통조림</h4>
-                        <div class="text-sm space-y-1">
-                            <div>실제 측정한 원주: <span class="font-bold text-blue-600">${circumData.tuna}cm</span></div>
-                            <div>규칙으로 계산: ${diamData.tunaDiam} × 3.14 = <span class="font-bold text-green-600">${tunaCalculated.toFixed(2)}cm</span></div>
-                            <div>차이: <span class="font-bold text-red-600">${tunaDiff.toFixed(2)}cm</span>
-                                <span class="text-xs ${tunaDiff < 1 ? 'text-green-600' : 'text-orange-600'}">${tunaDiff < 1 ? '(매우 정확!)' : '(측정 오차 있음)'}</span>
+                    <!-- 오른쪽 영역: 계산 결과들 -->
+                    <div class="col-span-3 space-y-2">
+                        <!-- 음료수 캔 결과 -->
+                        <div class="bg-blue-50 p-3 rounded-lg h-24 flex flex-col justify-center">
+                            <div class="text-lg space-y-1">
+                                <div class="flex items-center justify-center">
+                                    <span class="w-96 text-right mr-3">줄자로 측정한 원주</span>
+                                    <span class="font-bold text-blue-600">= ${circumData.can}cm</span>
+                                </div>
+                                <div class="flex items-center justify-center">
+                                    <span class="w-96 text-right mr-3 whitespace-nowrap">규칙으로 계산한 원주{측정한지름(${diamData.canDiam})×3.14}</span>
+                                    <span class="font-bold text-green-600">= ${canCalculated.toFixed(2)}cm</span>
+                                </div>
+                                <div class="flex items-center justify-center">
+                                    <span class="w-96 text-right mr-3">차이</span>
+                                    <span class="font-bold text-red-600">= ${canDiff.toFixed(2)}cm 
+                                        <span class="text-sm ${canDiff < 1 ? 'text-green-600' : 'text-orange-600'}">${canDiff < 1 ? '(매우 정확!)' : '(측정 오차 있음)'}</span>
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="bg-yellow-50 p-4 rounded-lg">
-                        <h4 class="font-semibold text-center mb-2">🧩 퍼즐통</h4>
-                        <div class="text-sm space-y-1">
-                            <div>실제 측정한 원주: <span class="font-bold text-blue-600">${circumData.puzzle}cm</span></div>
-                            <div>규칙으로 계산: ${diamData.puzzleDiam} × 3.14 = <span class="font-bold text-green-600">${puzzleCalculated.toFixed(2)}cm</span></div>
-                            <div>차이: <span class="font-bold text-red-600">${puzzleDiff.toFixed(2)}cm</span>
-                                <span class="text-xs ${puzzleDiff < 1 ? 'text-green-600' : 'text-orange-600'}">${puzzleDiff < 1 ? '(매우 정확!)' : '(측정 오차 있음)'}</span>
+                        
+                        <!-- 참치 통조림 결과 -->
+                        <div class="bg-green-50 p-3 rounded-lg h-24 flex flex-col justify-center">
+                            <div class="text-lg space-y-1">
+                                <div class="flex items-center justify-center">
+                                    <span class="w-96 text-right mr-3">줄자로 측정한 원주</span>
+                                    <span class="font-bold text-blue-600">= ${circumData.tuna}cm</span>
+                                </div>
+                                <div class="flex items-center justify-center">
+                                    <span class="w-96 text-right mr-3 whitespace-nowrap">규칙으로 계산한 원주{측정한지름(${diamData.tunaDiam})×3.14}</span>
+                                    <span class="font-bold text-green-600">= ${tunaCalculated.toFixed(2)}cm</span>
+                                </div>
+                                <div class="flex items-center justify-center">
+                                    <span class="w-96 text-right mr-3">차이</span>
+                                    <span class="font-bold text-red-600">= ${tunaDiff.toFixed(2)}cm
+                                        <span class="text-sm ${tunaDiff < 1 ? 'text-green-600' : 'text-orange-600'}">${tunaDiff < 1 ? '(매우 정확!)' : '(측정 오차 있음)'}</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 퍼즐통 결과 -->
+                        <div class="bg-yellow-50 p-3 rounded-lg h-24 flex flex-col justify-center">
+                            <div class="text-lg space-y-1">
+                                <div class="flex items-center justify-center">
+                                    <span class="w-96 text-right mr-3">줄자로 측정한 원주</span>
+                                    <span class="font-bold text-blue-600">= ${circumData.puzzle}cm</span>
+                                </div>
+                                <div class="flex items-center justify-center">
+                                    <span class="w-96 text-right mr-3 whitespace-nowrap">규칙으로 계산한 원주{측정한지름(${diamData.puzzleDiam})×3.14}</span>
+                                    <span class="font-bold text-green-600">= ${puzzleCalculated.toFixed(2)}cm</span>
+                                </div>
+                                <div class="flex items-center justify-center">
+                                    <span class="w-96 text-right mr-3">차이</span>
+                                    <span class="font-bold text-red-600">= ${puzzleDiff.toFixed(2)}cm
+                                        <span class="text-sm ${puzzleDiff < 1 ? 'text-green-600' : 'text-orange-600'}">${puzzleDiff < 1 ? '(매우 정확!)' : '(측정 오차 있음)'}</span>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -2698,34 +3145,73 @@
                             <div class="text-xs text-gray-500">${data.timestamp}</div>
                         </div>
                         
-                        <div class="grid grid-cols-1 gap-2 mb-3">
-                            <div class="bg-blue-50 p-3 rounded-lg border-l-4 border-blue-400">
-                                <div class="flex justify-between items-center">
-                                    <span class="font-semibold text-sm text-blue-700">🥤 음료수 캔</span>
-                                    <div class="text-xs">
-                                        <span class="text-blue-600">실제: ${data.can.actual}cm</span>
-                                        <span class="ml-2 text-blue-600">계산: ${data.can.calculated.toFixed(2)}cm</span>
-                                        <span class="ml-2 font-bold ${data.can.difference < 1 ? 'text-green-600' : 'text-red-600'}">차이: ${data.can.difference.toFixed(2)}cm</span>
-                                    </div>
+                        <div class="grid grid-cols-4 gap-4 mb-3">
+                            <!-- 왼쪽 영역: 항목 이름들 -->
+                            <div class="space-y-2">
+                                <div class="bg-blue-50 p-3 rounded-lg border-l-4 border-blue-400 h-24 flex items-center">
+                                    <div class="font-semibold text-lg text-blue-700">🥤 음료수 캔</div>
+                                </div>
+                                <div class="bg-green-50 p-3 rounded-lg border-l-4 border-green-400 h-24 flex items-center">
+                                    <div class="font-semibold text-lg text-green-700">🥫 참치 통조림</div>
+                                </div>
+                                <div class="bg-yellow-50 p-3 rounded-lg border-l-4 border-yellow-400 h-24 flex items-center">
+                                    <div class="font-semibold text-lg text-yellow-700">🧩 퍼즐통</div>
                                 </div>
                             </div>
-                            <div class="bg-green-50 p-3 rounded-lg border-l-4 border-green-400">
-                                <div class="flex justify-between items-center">
-                                    <span class="font-semibold text-sm text-green-700">🥫 참치 통조림</span>
-                                    <div class="text-xs">
-                                        <span class="text-green-600">실제: ${data.tuna.actual}cm</span>
-                                        <span class="ml-2 text-green-600">계산: ${data.tuna.calculated.toFixed(2)}cm</span>
-                                        <span class="ml-2 font-bold ${data.tuna.difference < 1 ? 'text-green-600' : 'text-red-600'}">차이: ${data.tuna.difference.toFixed(2)}cm</span>
+                            
+                            <!-- 오른쪽 영역: 계산 결과들 -->
+                            <div class="col-span-3 space-y-2">
+                                <!-- 음료수 캔 결과 -->
+                                <div class="bg-blue-50 p-3 rounded-lg h-24 flex flex-col justify-center">
+                                    <div class="text-base space-y-1">
+                                        <div class="flex justify-end items-center">
+                                            <span class="text-blue-600 mr-3">줄자로 측정한 원주</span>
+                                            <span class="font-bold text-blue-800">= ${data.can.actual}cm</span>
+                                        </div>
+                                        <div class="flex justify-end items-center">
+                                            <span class="text-blue-600 mr-3">규칙으로 계산한 원주{측정한지름(${data.can.diameter})×3.14}</span>
+                                            <span class="font-bold text-blue-800">= ${data.can.calculated.toFixed(2)}cm</span>
+                                        </div>
+                                        <div class="flex justify-end items-center">
+                                            <span class="text-blue-600 mr-3">차이</span>
+                                            <span class="font-bold ${data.can.difference < 1 ? 'text-green-600' : 'text-red-600'}">= ${data.can.difference.toFixed(2)}cm</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="bg-yellow-50 p-3 rounded-lg border-l-4 border-yellow-400">
-                                <div class="flex justify-between items-center">
-                                    <span class="font-semibold text-sm text-yellow-700">🧩 퍼즐통</span>
-                                    <div class="text-xs">
-                                        <span class="text-yellow-600">실제: ${data.puzzle.actual}cm</span>
-                                        <span class="ml-2 text-yellow-600">계산: ${data.puzzle.calculated.toFixed(2)}cm</span>
-                                        <span class="ml-2 font-bold ${data.puzzle.difference < 1 ? 'text-green-600' : 'text-red-600'}">차이: ${data.puzzle.difference.toFixed(2)}cm</span>
+                                
+                                <!-- 참치 통조림 결과 -->
+                                <div class="bg-green-50 p-3 rounded-lg h-24 flex flex-col justify-center">
+                                    <div class="text-base space-y-1">
+                                        <div class="flex justify-end items-center">
+                                            <span class="text-green-600 mr-3">줄자로 측정한 원주</span>
+                                            <span class="font-bold text-green-800">= ${data.tuna.actual}cm</span>
+                                        </div>
+                                        <div class="flex justify-end items-center">
+                                            <span class="text-green-600 mr-3">규칙으로 계산한 원주{측정한지름(${data.tuna.diameter})×3.14}</span>
+                                            <span class="font-bold text-green-800">= ${data.tuna.calculated.toFixed(2)}cm</span>
+                                        </div>
+                                        <div class="flex justify-end items-center">
+                                            <span class="text-green-600 mr-3">차이</span>
+                                            <span class="font-bold ${data.tuna.difference < 1 ? 'text-green-600' : 'text-red-600'}">= ${data.tuna.difference.toFixed(2)}cm</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 퍼즐통 결과 -->
+                                <div class="bg-yellow-50 p-3 rounded-lg h-24 flex flex-col justify-center">
+                                    <div class="text-base space-y-1">
+                                        <div class="flex justify-end items-center">
+                                            <span class="text-yellow-600 mr-3">줄자로 측정한 원주</span>
+                                            <span class="font-bold text-yellow-800">= ${data.puzzle.actual}cm</span>
+                                        </div>
+                                        <div class="flex justify-end items-center">
+                                            <span class="text-yellow-600 mr-3">규칙으로 계산한 원주{측정한지름(${data.puzzle.diameter})×3.14}</span>
+                                            <span class="font-bold text-yellow-800">= ${data.puzzle.calculated.toFixed(2)}cm</span>
+                                        </div>
+                                        <div class="flex justify-end items-center">
+                                            <span class="text-yellow-600 mr-3">차이</span>
+                                            <span class="font-bold ${data.puzzle.difference < 1 ? 'text-green-600' : 'text-red-600'}">= ${data.puzzle.difference.toFixed(2)}cm</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -2789,7 +3275,7 @@
         
         // 활동 3-3: 파이 이름 제출
         async function submitPiName() {
-            const team = document.getElementById('team-select-3-3').value;
+            const team = getSelectedTeam('team-select-3-3');
             const piName = document.getElementById('pi-name').value;
             
             if (!team || !piName) {
@@ -2802,7 +3288,7 @@
                 await deleteExistingTeamData('piNames', team);
                 
                 // Firebase에 새 데이터 저장
-                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'piNames_class2'), {
+                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'piNames'), {
                     team: team,
                     piName: piName,
                     formula: formulaData[team]?.formula || '',
@@ -2827,58 +3313,7 @@
         // 활동 3-3: 파이 이름 데이터 로드
         function loadPiNameData() {
             displayPiNameResults();
-            
-            // 모둠 선택 시 데이터 로드 이벤트 추가
-            document.getElementById('team-select-3-3').addEventListener('change', function() {
-                const selectedTeam = this.value;
-                const existingDataDiv = document.getElementById('existing-data-3-3');
-                const previousMeasurements = document.getElementById('previous-measurements-3-3');
-                const previousFormula = document.getElementById('previous-formula-3-3');
-                
-                if (selectedTeam) {
-                    // 이전 활동 데이터 표시
-                    let hasData = false;
-                    let measurementHtml = '';
-                    let formulaHtml = '';
-                    
-                    // 지름 데이터 표시
-                    if (diameterData[selectedTeam]) {
-                        const data = diameterData[selectedTeam];
-                        measurementHtml = `
-                            <div class="grid grid-cols-3 gap-2 text-xs">
-                                <div>🥫 참치: 둘레 ${data.tunaCirc}cm, 지름 ${data.tunaDiam}cm</div>
-                                <div>🐟 꽁치: 둘레 ${data.sauryCirc}cm, 지름 ${data.sauryDiam}cm</div>
-                                <div>🥤 음료수: 둘레 ${data.canCirc}cm, 지름 ${data.canDiam}cm</div>
-                            </div>
-                        `;
-                        hasData = true;
-                    }
-                    
-                    // 수식 데이터 표시
-                    if (formulaData[selectedTeam]) {
-                        formulaHtml = `<div class="font-semibold">발견한 수식: ${formulaData[selectedTeam].formula}</div>`;
-                        hasData = true;
-                    }
-                    
-                    if (hasData) {
-                        previousMeasurements.innerHTML = measurementHtml;
-                        previousFormula.innerHTML = formulaHtml;
-                        existingDataDiv.style.display = 'block';
-                    } else {
-                        existingDataDiv.style.display = 'none';
-                    }
-                    
-                    // 기존 파이 이름 데이터가 있으면 로드
-                    if (piNameData[selectedTeam]) {
-                        document.getElementById('pi-name').value = piNameData[selectedTeam].piName;
-                    } else {
-                        document.getElementById('pi-name').value = '';
-                    }
-                } else {
-                    existingDataDiv.style.display = 'none';
-                    document.getElementById('pi-name').value = '';
-                }
-            });
+            // 이벤트 리스너는 initializeTeamSelection()에서 통합 처리됨
         }
         
         function displayPiNameResults() {
@@ -2909,10 +3344,269 @@
         }
         
         function clearPiNameForm() {
-            document.getElementById('team-select-3-3').value = '';
+            // team-select-3-3 초기화
+            const container3_3 = document.getElementById('team-select-3-3');
+            if (container3_3) {
+                const selectedButton = container3_3.querySelector('.team-option.ring-4');
+                if (selectedButton) {
+                    selectedButton.classList.remove('ring-4', 'ring-blue-500', 'bg-blue-100');
+                    selectedButton.style.transform = 'scale(1)';
+                }
+                const selectedTeamDiv = container3_3.querySelector('[id^="selected-team-"]');
+                if (selectedTeamDiv) {
+                    selectedTeamDiv.classList.add('hidden');
+                }
+            }
             document.getElementById('pi-name').value = '';
         }
         
+        // 지름 측정 시뮬레이터 JavaScript (활동1용)
+        function initializeDiameterSimulator1() {
+            const canvas = document.getElementById('board-1');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+
+            const rulerTop = 390;     // 눈금자의 윗변 y
+            const rulerHeight = 56;
+            const cmPx = 50;          // 1cm = 50px
+            const mmPx = cmPx/10;     // 1mm = 5px
+            const triHeight = 180, triWidth = 180;
+
+            const state = {
+                circle: { x: canvas.width/2, y: 0, r: 120 },
+                leftEdgeX: null,
+                rightEdgeX: null,
+                dragging: null, // 'left' | 'right' | 'circle' | null
+                snap: true,
+                showTrue: true
+            };
+
+            function enforceTangency(){
+                // 원은 항상 눈금자의 윗변에 접한다
+                state.circle.y = rulerTop - state.circle.r;
+            }
+
+            function autoPlaceTriangles(){
+                const {x, r} = state.circle;
+                state.leftEdgeX = x - r - 10;  // 살짝 바깥에서 시작
+                state.rightEdgeX = x + r + 10;
+            }
+
+            // 초기 배치
+            enforceTangency();
+            autoPlaceTriangles();
+
+            function pxToCm(px){ return px / cmPx; }
+            function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
+            function getCss(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+
+            function drawRuler(){
+                ctx.fillStyle = getCss('--ruler') || '#e6eff6';
+                ctx.strokeStyle = getCss('--ruler-edge') || '#90a4ae';
+                ctx.lineWidth = 1.5;
+                ctx.fillRect(40, rulerTop, canvas.width-80, rulerHeight);
+                ctx.strokeRect(40, rulerTop, canvas.width-80, rulerHeight);
+
+                // 눈금
+                ctx.beginPath();
+                for(let x=40; x<=canvas.width-40; x+=mmPx){
+                    const i = Math.round((x-40)/mmPx);
+                    const isCm = i % 10 === 0; const isHalf = i % 5 === 0 && !isCm;
+                    const h = isCm ? 22 : isHalf ? 14 : 8;
+                    ctx.moveTo(x, rulerTop); ctx.lineTo(x, rulerTop-h);
+                }
+                ctx.strokeStyle = '#263238'; ctx.lineWidth = .9; ctx.stroke();
+
+                // 숫자(cm)
+                ctx.fillStyle = '#374151'; ctx.font = '12px system-ui,-apple-system,Segoe UI,Roboto,sans-serif'; ctx.textAlign = 'center';
+                for(let x=40, cm=0; x<=canvas.width-40; x+=cmPx, cm++){ ctx.fillText(cm, x, rulerTop-26); }
+            }
+
+            function drawCircle(){
+                const c = state.circle;
+                ctx.beginPath(); ctx.arc(c.x, c.y, c.r, 0, Math.PI*2);
+                ctx.fillStyle = getCss('--circle') || '#00c89699'; ctx.fill();
+                ctx.lineWidth = 2; ctx.strokeStyle = '#1f2937'; ctx.stroke();
+
+                // 지름 가이드
+                const Lx = c.x - c.r, Rx = c.x + c.r;
+                ctx.setLineDash([6,6]);
+                ctx.beginPath(); ctx.moveTo(Lx, c.y); ctx.lineTo(Rx, c.y);
+                ctx.strokeStyle = '#64748b'; ctx.stroke(); ctx.setLineDash([]);
+
+                // 접점 점
+                ctx.fillStyle = '#0f172a';
+                ctx.beginPath(); ctx.arc(Lx, c.y, 3, 0, Math.PI*2); ctx.fill();
+                ctx.beginPath(); ctx.arc(Rx, c.y, 3, 0, Math.PI*2); ctx.fill();
+            }
+
+            function drawSetSquare(edgeX, isLeft){
+                const baseY = rulerTop;
+                ctx.save(); ctx.beginPath();
+                if(isLeft){
+                    ctx.moveTo(edgeX, baseY);
+                    ctx.lineTo(edgeX, baseY - triHeight);
+                    ctx.lineTo(edgeX - triWidth, baseY);
+                } else {
+                    ctx.moveTo(edgeX, baseY);
+                    ctx.lineTo(edgeX, baseY - triHeight);
+                    ctx.lineTo(edgeX + triWidth, baseY);
+                }
+                ctx.closePath();
+                ctx.fillStyle = isLeft ? getCss('--tri') || '#f7c948aa' : getCss('--tri2') || '#f7a13daa'; ctx.fill();
+                ctx.lineWidth = 2; ctx.strokeStyle = '#374151'; ctx.stroke();
+
+                // 모서리(접선) 강조
+                ctx.beginPath(); ctx.moveTo(edgeX, baseY); ctx.lineTo(edgeX, baseY - triHeight);
+                ctx.lineWidth = 3; ctx.strokeStyle = '#0f172a'; ctx.stroke();
+
+                // 핸들
+                ctx.fillStyle = '#0f172a'; ctx.beginPath(); ctx.arc(edgeX, baseY - triHeight + 14, 5, 0, Math.PI*2); ctx.fill();
+
+                // 라벨
+                ctx.fillStyle = '#111827'; ctx.font = '12px system-ui,-apple-system,Segoe UI,Roboto,sans-serif'; ctx.textAlign = 'center';
+                ctx.fillText(isLeft?'왼쪽 삼각자':'오른쪽 삼각자', edgeX + (isLeft?-36:36), baseY - triHeight - 6);
+                ctx.restore();
+            }
+
+            function drawMeasurements(){
+                const {leftEdgeX, rightEdgeX, circle} = state;
+                const measuredPx = Math.abs(rightEdgeX - leftEdgeX);
+                const measuredCm = pxToCm(measuredPx);
+                const trueCm = pxToCm(circle.r*2);
+                const deltaMm = Math.round((measuredCm - trueCm) * 10 * 10) / 10; // mm 단위, 소수1자리
+
+                document.getElementById('readMeasured-1').textContent = `${measuredCm.toFixed(1)} cm`;
+                document.getElementById('readTrue-1').textContent = `${trueCm.toFixed(1)} cm`;
+                document.getElementById('readDelta-1').textContent = `${(deltaMm).toFixed(1)} mm`;
+
+                // 시각화
+                ctx.save();
+                const y = circle.y; ctx.strokeStyle = '#111827'; ctx.lineWidth = 2.5;
+                ctx.beginPath(); ctx.moveTo(state.leftEdgeX, y); ctx.lineTo(state.rightEdgeX, y); ctx.stroke();
+                drawArrow(state.leftEdgeX, y, -1); drawArrow(state.rightEdgeX, y, +1);
+                ctx.fillStyle = '#111827'; ctx.font = 'bold 13px system-ui,-apple-system,Segoe UI,Roboto,sans-serif'; ctx.textAlign = 'center';
+                ctx.fillText(`${measuredCm.toFixed(1)} cm`, (state.leftEdgeX+state.rightEdgeX)/2, y - 10);
+                ctx.restore();
+            }
+
+            function drawArrow(x,y,dir){ const len=16; ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x+dir*len, y-6); ctx.moveTo(x,y); ctx.lineTo(x+dir*len, y+6); ctx.stroke(); }
+
+            function render(){
+                enforceTangency();
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                drawRuler(); drawCircle();
+                drawSetSquare(state.leftEdgeX,true); drawSetSquare(state.rightEdgeX,false);
+                drawMeasurements();
+
+                if(state.showTrue){
+                    const {x,r} = state.circle; ctx.save(); ctx.setLineDash([4,6]); ctx.strokeStyle = '#22c55e'; ctx.lineWidth = 2;
+                    ctx.beginPath(); ctx.moveTo(x-r, rulerTop); ctx.lineTo(x-r, rulerTop - triHeight); ctx.moveTo(x+r, rulerTop); ctx.lineTo(x+r, rulerTop - triHeight); ctx.stroke(); ctx.restore();
+                }
+            }
+
+            // ===== 히트 테스트 & 드래그 =====
+            function hitTarget(mx,my){
+                // 1) 원부터 검사 (원이 평자 위에 있으므로 원 영역만 체크)
+                const c = state.circle; const dist = Math.hypot(mx - c.x, my - c.y);
+                if(dist <= c.r + 6 && my <= rulerTop) return 'circle';
+
+                // 2) 삼각자 검사 (bounding box)
+                const baseY = rulerTop, topY = baseY - triHeight;
+                const leftBx = {x1: state.leftEdgeX - triWidth, x2: state.leftEdgeX, y1: topY, y2: baseY};
+                const rightBx = {x1: state.rightEdgeX, x2: state.rightEdgeX + triWidth, y1: topY, y2: baseY};
+                if(mx>=leftBx.x1 && mx<=leftBx.x2 && my>=leftBx.y1 && my<=leftBx.y2) return 'left';
+                if(mx>=rightBx.x1 && mx<=rightBx.x2 && my>=rightBx.y1 && my<=rightBx.y2) return 'right';
+                return null;
+            }
+
+            function onPointerDown(e){
+                const rect = canvas.getBoundingClientRect();
+                const mx = (e.touches? e.touches[0].clientX : e.clientX) - rect.left;
+                const my = (e.touches? e.touches[0].clientY : e.clientY) - rect.top;
+                const hit = hitTarget(mx,my);
+                if(hit){ state.dragging = hit; e.preventDefault(); }
+            }
+
+            function onPointerMove(e){
+                if(!state.dragging) return;
+                const rect = canvas.getBoundingClientRect();
+                const mx = (e.touches? e.touches[0].clientX : e.clientX) - rect.left;
+
+                if(state.dragging==='left'){
+                    const maxX = state.rightEdgeX - 20;
+                    let x = clamp(mx, 40, maxX);
+                    if(state.snap){ const target = state.circle.x - state.circle.r; if(Math.abs(x-target)<12) x = target; }
+                    state.leftEdgeX = x;
+                } else if(state.dragging==='right'){
+                    const minX = state.leftEdgeX + 20;
+                    let x = clamp(mx, minX, canvas.width-40);
+                    if(state.snap){ const target = state.circle.x + state.circle.r; if(Math.abs(x-target)<12) x = target; }
+                    state.rightEdgeX = x;
+                } else if(state.dragging==='circle'){
+                    // 원은 좌우로만 이동, 평자에 항상 접하도록 y는 고정 규칙 적용
+                    const r = state.circle.r;
+                    const min = 40 + r, max = canvas.width - 40 - r; // 좌우 여백 고려
+                    state.circle.x = clamp(mx, min, max);
+                    enforceTangency();
+                }
+                render(); e.preventDefault();
+            }
+
+            function onPointerUp(){ state.dragging = null; }
+
+            canvas.addEventListener('mousedown', onPointerDown);
+            canvas.addEventListener('mousemove', onPointerMove);
+            window.addEventListener('mouseup', onPointerUp);
+            canvas.addEventListener('touchstart', onPointerDown, {passive:false});
+            canvas.addEventListener('touchmove', onPointerMove, {passive:false});
+            canvas.addEventListener('touchend', onPointerUp);
+
+            // ===== 컨트롤 =====
+            const radiusEl = document.getElementById('radius-1');
+            const rVal = document.getElementById('rVal-1');
+            const snapEl = document.getElementById('snap-1');
+            const showTrueEl = document.getElementById('showTrue-1');
+
+            if (radiusEl) {
+                radiusEl.addEventListener('input', ()=>{
+                    const r = parseInt(radiusEl.value,10); rVal.textContent = r; state.circle.r = r; enforceTangency(); render();
+                });
+            }
+            if (snapEl) {
+                snapEl.addEventListener('change', ()=>{ state.snap = snapEl.checked; render(); });
+            }
+            if (showTrueEl) {
+                showTrueEl.addEventListener('change', ()=>{ state.showTrue = showTrueEl.checked; render(); });
+            }
+
+            const autoPlaceBtn = document.getElementById('autoPlace-1');
+            if (autoPlaceBtn) {
+                autoPlaceBtn.addEventListener('click', ()=>{ autoPlaceTriangles(); render(); });
+            }
+
+            const randomizeBtn = document.getElementById('randomize-1');
+            if (randomizeBtn) {
+                randomizeBtn.addEventListener('click', ()=>{
+                    const r = Math.floor(60 + Math.random()*100);
+                    state.circle.r = r; radiusEl.value = r; rVal.textContent = r; enforceTangency(); autoPlaceTriangles(); render();
+                });
+            }
+
+            const resetBtn = document.getElementById('reset-1');
+            if (resetBtn) {
+                resetBtn.addEventListener('click', ()=>{
+                    state.circle = { x: canvas.width/2, y: 0, r: 120 }; enforceTangency();
+                    radiusEl.value = 120; rVal.textContent = 120; state.snap = true; snapEl.checked = true; state.showTrue = true; showTrueEl.checked = true;
+                    autoPlaceTriangles(); render();
+                });
+            }
+
+            // 초기 렌더
+            render();
+        }
+
         // 지름 측정 시뮬레이터 JavaScript
         function initializeDiameterSimulator() {
             const canvas = document.getElementById('board');
@@ -3283,10 +3977,192 @@
             render();
         }
 
+        // 모둠 선택 값 가져오기 헬퍼 함수
+        function getSelectedTeam(containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return '';
+            
+            // 선택된 버튼 찾기
+            const selectedButton = container.querySelector('.team-option.ring-4');
+            if (selectedButton) {
+                return selectedButton.getAttribute('data-team');
+            }
+            
+            // 기존 select 요소가 있다면 그 값 사용
+            const selectElement = container.querySelector('select');
+            if (selectElement) {
+                return selectElement.value;
+            }
+            
+            return '';
+        }
+
+        // 모둠 선택 이벤트 리스너 초기화
+        function initializeTeamSelection() {
+            // 모든 모둠 선택 버튼에 이벤트 리스너 추가
+            const teamOptions = document.querySelectorAll('.team-option');
+            teamOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const teamName = this.getAttribute('data-team');
+                    const container = this.closest('[id^="team-select-"]');
+                    const containerId = container.id;
+                    
+                    // 같은 컨테이너의 다른 버튼들 비활성화
+                    const otherOptions = container.querySelectorAll('.team-option');
+                    otherOptions.forEach(opt => {
+                        opt.classList.remove('ring-4', 'ring-blue-500', 'bg-blue-100');
+                        opt.style.transform = 'scale(1)';
+                    });
+                    
+                    // 선택된 버튼 활성화
+                    this.classList.add('ring-4', 'ring-blue-500', 'bg-blue-100');
+                    this.style.transform = 'scale(1.05)';
+                    
+                    // 선택된 모둠 표시 영역 업데이트
+                    const selectedTeamDiv = container.querySelector('[id^="selected-team-"]');
+                    const selectedTeamName = container.querySelector('[id^="selected-team-name-"]');
+                    if (selectedTeamDiv && selectedTeamName) {
+                        selectedTeamName.textContent = teamName;
+                        selectedTeamDiv.classList.remove('hidden');
+                    }
+                    
+                    // 기존 select 요소의 value 업데이트 (호환성을 위해)
+                    const selectElement = document.getElementById(containerId);
+                    if (selectElement) {
+                        selectElement.value = teamName;
+                    }
+                    
+                    // 모둠별 특별한 로직 실행
+                    handleTeamSelection(containerId, teamName);
+                });
+            });
+        }
+
+        // 모둠 선택 시 특별한 로직 처리
+        function handleTeamSelection(containerId, teamName) {
+            // 활동 1-3: 지름 측정에서 원주 데이터 자동 입력
+            if (containerId === 'team-select-1-3') {
+                if (teamName && measurementData[teamName]) {
+                    const data = measurementData[teamName];
+                    document.getElementById('can-circumference-1-3').textContent = `원주: ${data.can}cm`;
+                    document.getElementById('tuna-circumference-1-3').textContent = `원주: ${data.tuna}cm`;
+                    document.getElementById('puzzle-circumference-1-3').textContent = `원주: ${data.puzzle}cm`;
+                    
+                    // 기존 지름 데이터가 있으면 로드
+                    if (diameterData[teamName]) {
+                        const diamData = diameterData[teamName];
+                        document.getElementById('can-diameter-1-3').value = diamData.canDiam;
+                        document.getElementById('tuna-diameter-1-3').value = diamData.tunaDiam;
+                        document.getElementById('puzzle-diameter-1-3').value = diamData.puzzleDiam;
+                    }
+                } else {
+                    // 선택 해제 시 폼 초기화
+                    document.getElementById('can-circumference-1-3').textContent = '원주: 모둠을 선택하면 자동 입력 됨';
+                    document.getElementById('tuna-circumference-1-3').textContent = '원주: 모둠을 선택하면 자동 입력 됨';
+                    document.getElementById('puzzle-circumference-1-3').textContent = '원주: 모둠을 선택하면 자동 입력 됨';
+                    document.getElementById('can-diameter-1-3').value = '';
+                    document.getElementById('tuna-diameter-1-3').value = '';
+                    document.getElementById('puzzle-diameter-1-3').value = '';
+                }
+            }
+            
+            // 활동 2: 지름 측정에서 원주 데이터 자동 입력
+            if (containerId === 'team-select-2') {
+                if (teamName && measurementData[teamName]) {
+                    const data = measurementData[teamName];
+                    document.getElementById('can-circumference-2').textContent = `원주: ${data.can}cm`;
+                    document.getElementById('tuna-circumference-2').textContent = `원주: ${data.tuna}cm`;
+                    document.getElementById('puzzle-circumference-2').textContent = `원주: ${data.puzzle}cm`;
+                    
+                    // 기존 지름 데이터가 있으면 로드
+                    if (diameterData[teamName]) {
+                        const diamData = diameterData[teamName];
+                        document.getElementById('can-diameter').value = diamData.canDiam;
+                        document.getElementById('tuna-diameter').value = diamData.tunaDiam;
+                        document.getElementById('puzzle-diameter').value = diamData.puzzleDiam;
+                    }
+                } else {
+                    // 선택 해제 시 폼 초기화
+                    document.getElementById('can-circumference-2').textContent = '원주: 모둠을 선택하면 자동 입력 됨';
+                    document.getElementById('tuna-circumference-2').textContent = '원주: 모둠을 선택하면 자동 입력 됨';
+                    document.getElementById('puzzle-circumference-2').textContent = '원주: 모둠을 선택하면 자동 입력 됨';
+                    document.getElementById('can-diameter').value = '';
+                    document.getElementById('tuna-diameter').value = '';
+                    document.getElementById('puzzle-diameter').value = '';
+                }
+            }
+            
+            // 활동 3: 수식에서 지름 데이터 자동 입력
+            if (containerId === 'team-select-3') {
+                if (teamName && diameterData[teamName]) {
+                    // 기존 수식 데이터가 있으면 로드
+                    if (formulaData[teamName]) {
+                        document.getElementById('formula-relation').value = formulaData[teamName].formula;
+                    }
+                } else {
+                    document.getElementById('formula-relation').value = '';
+                }
+            }
+            
+            // 활동 3-3: 파이 이름에서 이전 데이터 표시
+            if (containerId === 'team-select-3-3') {
+                const existingDataDiv = document.getElementById('existing-data-3-3');
+                const previousMeasurements = document.getElementById('previous-measurements-3-3');
+                const previousFormula = document.getElementById('previous-formula-3-3');
+                
+                if (teamName) {
+                    // 이전 활동 데이터 표시
+                    let hasData = false;
+                    let measurementHtml = '';
+                    let formulaHtml = '';
+                    
+                    // 지름 데이터 표시
+                    if (diameterData[teamName]) {
+                        const data = diameterData[teamName];
+                        measurementHtml = `
+                            <div class="grid grid-cols-3 gap-2 text-xs">
+                                <div>🥫 참치: 둘레 ${data.tunaCirc}cm, 지름 ${data.tunaDiam}cm</div>
+                                <div>🐟 꽁치: 둘레 ${data.sauryCirc}cm, 지름 ${data.sauryDiam}cm</div>
+                                <div>🥤 음료수: 둘레 ${data.canCirc}cm, 지름 ${data.canDiam}cm</div>
+                            </div>
+                        `;
+                        hasData = true;
+                    }
+                    
+                    // 수식 데이터 표시
+                    if (formulaData[teamName]) {
+                        formulaHtml = `<div class="font-semibold">발견한 수식: ${formulaData[teamName].formula}</div>`;
+                        hasData = true;
+                    }
+                    
+                    if (hasData) {
+                        previousMeasurements.innerHTML = measurementHtml;
+                        previousFormula.innerHTML = formulaHtml;
+                        existingDataDiv.style.display = 'block';
+                    } else {
+                        existingDataDiv.style.display = 'none';
+                    }
+                    
+                    // 기존 파이 이름 데이터가 있으면 로드
+                    if (piNameData[teamName]) {
+                        document.getElementById('pi-name').value = piNameData[teamName].piName;
+                    } else {
+                        document.getElementById('pi-name').value = '';
+                    }
+                } else {
+                    existingDataDiv.style.display = 'none';
+                    document.getElementById('pi-name').value = '';
+                }
+            }
+        }
+
         // 초기화
         document.addEventListener('DOMContentLoaded', function() {
             // Firebase 리스너 초기화
             initializeFirebaseListeners();
+            
+            // 모둠 선택 이벤트 리스너 초기화
+            initializeTeamSelection();
             
             // 기존 표시 함수들 (Firebase 리스너가 자동으로 호출함)
             displayMeasurementResults();

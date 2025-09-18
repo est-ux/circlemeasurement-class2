@@ -587,8 +587,8 @@
                 <div class="card p-10 text-center cursor-pointer" onclick="showActivity('activity1')">
                     <div class="activity-icon text-7xl mb-6">📏</div>
                     <h2 class="text-5xl font-bold text-gray-800 mb-6">활동 1</h2>
-                    <h3 class="text-2xl font-semibold text-blue-600 mb-5">내 주변 물건의 원주 측정 도전하기</h3>
-                    <p class="text-xl text-gray-600 leading-relaxed">원형 물건의 원주를 측정할 수 있는 다양한 방법을 생각해보고, 실제 측정하여 결과를 공유해요!</p>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-5">주변 물건의 원주와 지름 측정 도전하기</h3>
+                    <p class="text-xl text-gray-600 leading-relaxed">원형 물건의 원주와 지름을 측정할 수 있는 다양한 방법을 생각해보고, 실제 측정하여 결과를 공유해요!</p>
                 </div>
                 
                 <!-- 활동 2 -->
@@ -615,7 +615,7 @@
                 <button onclick="showMainScreen()" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-xl">
                     ← 메인으로 돌아가기
                 </button>
-                <h1 class="text-4xl font-bold text-white">📏 &lt;활동 1&gt; 내 주변 물건의 원주 측정 도전하기</h1>
+                <h1 class="text-4xl font-bold text-white">📏 &lt;활동 1&gt; 주변 물건의 원주와 지름 측정 도전하기</h1>
                 <div></div>
             </div>
             
@@ -964,7 +964,7 @@
             </div>
             
             <!-- 활동 2 서브메뉴 -->
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
                 <button onclick="showSubActivity('activity2-3')" class="card p-8 text-center hover:bg-purple-50">
                     <div class="text-4xl mb-4">🔄</div>
                     <div class="font-semibold text-xl">원주가 가진 규칙 발견해보기</div>
@@ -972,6 +972,10 @@
                 <button onclick="showSubActivity('activity2-4')" class="card p-8 text-center hover:bg-yellow-50">
                     <div class="text-4xl mb-4">📝</div>
                     <div class="font-semibold text-xl">원주가 가진 규칙 기록하기</div>
+                </button>
+                <button onclick="showSubActivity('activity2-5')" class="card p-8 text-center hover:bg-blue-50">
+                    <div class="text-4xl mb-4">🔍</div>
+                    <div class="font-semibold text-xl">발견한 규칙 검증하기</div>
                 </button>
             </div>
             
@@ -1104,6 +1108,57 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- 활동 2-5: 발견한 규칙 검증하기 -->
+            <div id="activity2-5" class="hidden card p-8 mb-6">
+                <h2 class="text-2xl font-bold text-center mb-6 text-gray-800">🔄 찾은 수식이 맞는지 확인하기</h2>
+                
+                <div class="text-center mb-6">
+                    <div class="mb-4">
+                        <label class="block text-lg font-semibold mb-2">원의 지름을 입력하세요 (1~1000cm 소수 첫째자리까지 입력가능)</label>
+                        <input type="number" id="circle-diameter-2" min="1" max="1000" step="0.1" placeholder="자연수 또는 소수 첫째자리까지 입력 가능" class="p-4 text-xl border-2 border-gray-300 rounded-lg focus:border-blue-500 text-center w-[28rem]" oninput="limitDecimalPlaces(this, 1)">
+                        <button onclick="calculateFormula2()" class="ml-4 bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-lg font-bold">
+                            🧮 계산하기
+                        </button>
+                        <button id="rolling-btn-2" onclick="startRolling2()" class="ml-2 btn-primary text-white px-6 py-4 rounded-lg font-bold" disabled>
+                            🔄 굴려보기
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 수식 계산 결과 -->
+                <div id="formula-calculation-2" class="mb-6 text-center hidden">
+                    <div class="formula-display bg-gradient-to-r from-green-100 to-green-200">
+                        <div class="text-2xl font-semibold mb-3">1. <span id="formula-diameter-label-2">수식에 따라 계산된 원주</span></div>
+                        <div id="calculated-result-2" class="text-4xl font-bold text-green-600"></div>
+                    </div>
+                </div>
+                
+                <div class="zoom-controls">
+                    <button onclick="zoomIn2()" class="bg-white p-2 rounded-full shadow-lg mr-2">🔍+</button>
+                    <button onclick="zoomOut2()" class="bg-white p-2 rounded-full shadow-lg">🔍-</button>
+                </div>
+                
+                <div id="rolling-container-2" class="overflow-auto border-2 border-gray-300 rounded-lg bg-white" style="height: 400px;">
+                    <div id="rolling-area-2" class="relative h-full transition-transform duration-300" style="transform-origin: left center;">
+                        <!-- 굴리기 애니메이션 영역 -->
+                    </div>
+                </div>
+                
+                <div id="rolling-result-2" class="mt-6 text-center hidden">
+                    <div class="formula-display bg-gradient-to-r from-blue-100 to-blue-200">
+                        <div class="text-2xl font-semibold mb-3">2. <span id="rolling-diameter-label-2">원이 한 바퀴 굴러간 <span style="color: red; font-weight: bold;">실제</span>거리</span></div>
+                        <div id="actual-circumference-2" class="text-4xl font-bold text-blue-600"></div>
+                    </div>
+                </div>
+                
+                <!-- 비교 결과 -->
+                <div id="comparison-result-2" class="mt-6 text-center hidden">
+                    <div class="formula-display bg-gradient-to-r from-purple-100 to-pink-200">
+                        <div id="comparison-text-2" class="text-2xl font-bold text-purple-600"></div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- 활동 3: 수식 확인하기 -->
@@ -1112,16 +1167,12 @@
                 <button onclick="showMainScreen()" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-xl">
                     ← 메인으로 돌아가기
                 </button>
-                <h1 class="text-4xl font-bold text-white">✅ &lt;활동 3&gt; 발견한 규칙 맞는지 확인하기</h1>
+                <h1 class="text-4xl font-bold text-white">✅ &lt;활동 3&gt; 규칙 적용하고 확인하기!</h1>
                 <div></div>
             </div>
             
             <!-- 활동 3 서브메뉴 -->
             <div class="grid md:grid-cols-3 gap-10 mb-12">
-                <button onclick="showSubActivity3('activity3-1')" class="card p-10 text-center hover:bg-blue-50">
-                    <div class="text-5xl mb-6">🔄</div>
-                    <div class="font-semibold text-xl">발견한 규칙 검증하기</div>
-                </button>
                 <button onclick="showSubActivity3('activity3-2')" class="card p-10 text-center hover:bg-green-50">
                     <div class="text-5xl mb-6">🧮</div>
                     <div class="font-semibold text-xl">규칙 적용하여 물건의 원주 계산하기</div>
@@ -1130,58 +1181,12 @@
                     <div class="text-5xl mb-6">🏷️</div>
                     <div class="font-semibold text-xl">규칙(3.14...)의 이름 정해보기</div>
                 </button>
+                <button onclick="showSubActivity3('activity3-4')" class="card p-10 text-center hover:bg-pink-50">
+                    <div class="text-5xl mb-6">🎪</div>
+                    <div class="font-semibold text-xl">훌라후프의 원주 구해보기</div>
+                </button>
             </div>
             
-            <!-- 활동 3-1: 수식 확인 실험 -->
-            <div id="activity3-1" class="card p-8 mb-6">
-                <h2 class="text-2xl font-bold text-center mb-6 text-gray-800">🔄 찾은 수식이 맞는지 확인하기</h2>
-                
-                <div class="text-center mb-6">
-                    <div class="mb-4">
-                        <label class="block text-lg font-semibold mb-2">원의 지름을 입력하세요 (1~1000cm 소수 첫째자리까지 입력가능)</label>
-                        <input type="number" id="circle-diameter-3" min="1" max="1000" step="0.1" placeholder="자연수 또는 소수 첫째자리까지 입력 가능" class="p-4 text-xl border-2 border-gray-300 rounded-lg focus:border-blue-500 text-center w-[28rem]" oninput="limitDecimalPlaces(this, 1)">
-                        <button onclick="calculateFormula()" class="ml-4 bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-lg font-bold">
-                            🧮 계산하기
-                        </button>
-                        <button id="rolling-btn-3" onclick="startRolling3()" class="ml-2 btn-primary text-white px-6 py-4 rounded-lg font-bold" disabled>
-                            🔄 굴려보기
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- 수식 계산 결과 -->
-                <div id="formula-calculation" class="mb-6 text-center hidden">
-                    <div class="formula-display bg-gradient-to-r from-green-100 to-green-200">
-                        <div class="text-2xl font-semibold mb-3">1. <span id="formula-diameter-label">수식에 따라 계산된 원주</span></div>
-                        <div id="calculated-result" class="text-4xl font-bold text-green-600"></div>
-                    </div>
-                </div>
-                
-                <div class="zoom-controls">
-                    <button onclick="zoomIn3()" class="bg-white p-2 rounded-full shadow-lg mr-2">🔍+</button>
-                    <button onclick="zoomOut3()" class="bg-white p-2 rounded-full shadow-lg">🔍-</button>
-                </div>
-                
-                <div id="rolling-container-3" class="overflow-auto border-2 border-gray-300 rounded-lg bg-white" style="height: 400px;">
-                    <div id="rolling-area-3" class="relative h-full transition-transform duration-300" style="transform-origin: left center;">
-                        <!-- 굴리기 애니메이션 영역 -->
-                    </div>
-                </div>
-                
-                <div id="rolling-result-3" class="mt-6 text-center hidden">
-                    <div class="formula-display bg-gradient-to-r from-blue-100 to-blue-200">
-                        <div class="text-2xl font-semibold mb-3">2. <span id="rolling-diameter-label">원이 한 바퀴 굴러간 <span style="color: red; font-weight: bold;">실제</span>거리</span></div>
-                        <div id="actual-circumference" class="text-4xl font-bold text-blue-600"></div>
-                    </div>
-                </div>
-                
-                <!-- 비교 결과 -->
-                <div id="comparison-result" class="mt-6 text-center hidden">
-                    <div class="formula-display bg-gradient-to-r from-purple-100 to-pink-200">
-                        <div id="comparison-text" class="text-2xl font-bold text-purple-600"></div>
-                    </div>
-                </div>
-            </div>
             
             <!-- 활동 3-2: 규칙 적용하여 물건의 원주 계산하기 -->
             <div id="activity3-2" class="hidden card p-10 mb-12">
@@ -1316,12 +1321,120 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- 활동 3-4: 훌라후프의 원주 구해보기 -->
+            <div id="activity3-4" class="hidden card p-10 mb-12">
+                <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">🎪 훌라후프의 원주 구해보기</h2>
+                
+                <div class="text-center mb-8">
+                    <p class="text-xl text-gray-600 mb-6">훌라후프의 지름을 측정하고, 우리가 발견한 규칙을 사용해서 원주를 계산해보세요!</p>
+                    <div class="bg-blue-100 border-l-4 border-blue-500 p-4 rounded-lg text-lg">
+                        <p class="font-semibold text-blue-800">💡 활동 방법:</p>
+                        <p class="text-blue-700">1. 훌라후프의 지름을 측정하세요</p>
+                        <p class="text-blue-700">2. 아래 보드판에 계산 과정을 써보세요</p>
+                        <p class="text-blue-700">3. 실제 훌라후프로 확인해보세요</p>
+                    </div>
+                </div>
+                
+                <!-- 필기 보드판 -->
+                <div class="bg-white border-4 border-gray-300 rounded-lg shadow-lg mb-6" style="height: 500px; position: relative;">
+                    <canvas id="hula-hoop-board" width="100%" height="100%" style="width: 100%; height: 100%; cursor: crosshair; border-radius: 8px;"></canvas>
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div class="bg-gray-200 px-8 py-4 rounded-lg shadow-lg">
+                            <p class="text-gray-600 text-2xl font-semibold">화면 필기 기능을 활용하세요</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 도구 모음 -->
+                <div class="flex justify-center gap-4 mb-6">
+                    <button onclick="clearBoard()" class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg font-bold transition-colors">
+                        🗑️ 지우기
+                    </button>
+                    <button onclick="changePenColor('black')" class="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg font-bold transition-colors">
+                        ⚫ 검은색
+                    </button>
+                    <button onclick="changePenColor('red')" class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg font-bold transition-colors">
+                        🔴 빨간색
+                    </button>
+                    <button onclick="changePenColor('blue')" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-bold transition-colors">
+                        🔵 파란색
+                    </button>
+                    <button onclick="changePenColor('green')" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-bold transition-colors">
+                        🟢 초록색
+                    </button>
+                    <button onclick="changePenSize(2)" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-bold transition-colors">
+                        ✏️ 얇게
+                    </button>
+                    <button onclick="changePenSize(5)" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-bold transition-colors">
+                        ✏️ 굵게
+                    </button>
+                </div>
+                
+                <!-- 계산 결과 입력 -->
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="measurement-card">
+                        <h3 class="text-2xl font-bold mb-6 text-center">📊 계산 결과 입력하기</h3>
+                        <div class="space-y-5">
+                            <div>
+                                <label class="block text-lg font-semibold mb-2">모둠 선택:</label>
+                                <div id="team-select-3-4" class="w-full">
+                                    <div class="text-lg font-semibold mb-3">모둠을 선택하세요:</div>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 text-lg transition-all duration-200" data-team="파랑모둠" style="background-color: #dbeafe; border-color: #3b82f6;">파랑모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-green-500 hover:bg-green-50 text-lg transition-all duration-200" data-team="초록모둠" style="background-color: #dcfce7; border-color: #22c55e;">초록모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500 hover:bg-purple-50 text-lg transition-all duration-200" data-team="보라모둠" style="background-color: #f3e8ff; border-color: #a855f7;">보라모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-red-500 hover:bg-red-50 text-lg transition-all duration-200" data-team="빨강모둠" style="background-color: #fee2e2; border-color: #ef4444;">빨강모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-yellow-500 hover:bg-yellow-50 text-lg transition-all duration-200" data-team="노랑모둠" style="background-color: #fef3c7; border-color: #eab308;">노랑모둠</button>
+                                        <button class="team-option p-4 border-2 border-gray-300 rounded-lg hover:border-gray-500 hover:bg-gray-50 text-lg transition-all duration-200" data-team="하양모둠" style="background-color: #f9fafb; border-color: #6b7280;">하양모둠</button>
+                                    </div>
+                                    <div id="selected-team-3-4" class="mt-4 p-3 bg-blue-100 border-2 border-blue-300 rounded-lg text-lg font-semibold text-blue-800 hidden">
+                                        선택된 모둠: <span id="selected-team-name-3-4"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-lg font-semibold mb-2">📏 측정한 훌라후프의 지름 (cm)</label>
+                                <input type="number" id="hula-hoop-diameter" step="0.1" placeholder="지름을 입력하세요" class="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-blue-500 text-lg" oninput="limitDecimalPlaces(this, 1)">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-lg font-semibold mb-2">🧮 계산한 원주 (cm)</label>
+                                <input type="number" id="hula-hoop-circumference" step="0.1" placeholder="원주를 입력하세요" class="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-blue-500 text-lg" oninput="limitDecimalPlaces(this, 1)">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-lg font-semibold mb-2">📝 계산 과정 설명</label>
+                                <textarea id="hula-hoop-calculation" rows="4" placeholder="어떻게 계산했는지 설명해주세요" class="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-blue-500 text-lg"></textarea>
+                            </div>
+                            
+                            <button onclick="submitHulaHoop()" class="w-full btn-primary text-white py-5 rounded-lg font-bold text-xl">
+                                📤 제출하기
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="measurement-card">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-2xl font-bold text-center">👥 우리반 친구들의 훌라후프 계산 결과</h3>
+                            <button onclick="clearAllHulaHoops()" class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg text-base font-bold transition-colors shadow-lg">
+                                🗑️ 기존 자료 삭제
+                            </button>
+                        </div>
+                        <div id="hula-hoop-results" class="space-y-4 max-h-[500px] overflow-y-auto text-base">
+                            <p class="text-center text-gray-500 text-lg">아직 제출된 결과가 없습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
         // 전역 변수
         let currentZoom = 1;
+        let currentZoom2 = 1;
         let currentZoom3 = 1;
         let measurementData = {};
         let diameterData = {};
@@ -1329,6 +1442,13 @@
         let piNameData = {};
         let methodsData = {};
         let sharedCalculationData = {};
+        let hulaHoopData = {};
+        
+        // 필기 보드판 관련 변수
+        let isDrawing = false;
+        let currentPenColor = 'black';
+        let currentPenSize = 2;
+        let canvas, ctx;
         
         // Firebase 실시간 데이터 동기화
         function initializeFirebaseListeners() {
@@ -1458,6 +1578,24 @@
                 displaySharedCalculationResults();
             }, (error) => {
                 console.error('계산 데이터 리스너 오류:', error);
+            });
+            
+            // 훌라후프 데이터 실시간 동기화
+            const hulaHoopQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'hulaHoops'), window.firebaseOrderBy('timestamp', 'desc'));
+            window.firebaseOnSnapshot(hulaHoopQuery, (snapshot) => {
+                console.log('훌라후프 데이터 업데이트:', snapshot.size, '개 문서');
+                hulaHoopData = {};
+                snapshot.forEach((doc) => {
+                    const data = doc.data();
+                    hulaHoopData[data.team] = {
+                        diameter: data.diameter,
+                        circumference: data.circumference,
+                        calculation: data.calculation
+                    };
+                });
+                displayHulaHoopResults();
+            }, (error) => {
+                console.error('훌라후프 데이터 리스너 오류:', error);
             });
         }
         
@@ -1630,7 +1768,13 @@
             }
             
             // 입력값이 변경될 때마다 굴려보기 버튼 비활성화
-            if (input.id === 'circle-diameter-3') {
+            if (input.id === 'circle-diameter-2') {
+                const rollingBtn = document.getElementById('rolling-btn-2');
+                if (rollingBtn) {
+                    rollingBtn.disabled = true;
+                    rollingBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                }
+            } else if (input.id === 'circle-diameter-3') {
                 const rollingBtn = document.getElementById('rolling-btn-3');
                 if (rollingBtn) {
                     rollingBtn.disabled = true;
@@ -1656,7 +1800,7 @@
             } else if (activityId === 'activity2') {
                 showSubActivity('activity2-3');
             } else if (activityId === 'activity3') {
-                showSubActivity3('activity3-1');
+                showSubActivity3('activity3-2');
             }
         }
         
@@ -1680,11 +1824,22 @@
             // 모든 서브 활동 숨기기
             document.getElementById('activity2-3').classList.add('hidden');
             document.getElementById('activity2-4').classList.add('hidden');
+            document.getElementById('activity2-5').classList.add('hidden');
             
             document.getElementById(subActivityId).classList.remove('hidden');
             
             if (subActivityId === 'activity2-3') {
                 loadDiameterDataForFormula();
+            } else if (subActivityId === 'activity2-5') {
+                // 굴려보기 버튼 초기화 (비활성화 상태로 시작)
+                const rollingBtn = document.getElementById('rolling-btn-2');
+                if (rollingBtn) {
+                    rollingBtn.disabled = true;
+                    rollingBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                }
+                // 줌 초기화
+                currentZoom2 = 1;
+                document.getElementById('rolling-area-2').style.transform = 'scale(1)';
             }
         }
         
@@ -1728,19 +1883,20 @@
         }
         
         function showSubActivity3(subActivityId) {
-            document.getElementById('activity3-1').classList.remove('hidden');
+            // 모든 서브 활동 숨기기
             document.getElementById('activity3-2').classList.add('hidden');
             document.getElementById('activity3-3').classList.add('hidden');
+            document.getElementById('activity3-4').classList.add('hidden');
             
-            if (subActivityId !== 'activity3-1') {
-                document.getElementById('activity3-1').classList.add('hidden');
-                document.getElementById(subActivityId).classList.remove('hidden');
-                
-                if (subActivityId === 'activity3-2') {
-                    loadCalculationData();
-                } else if (subActivityId === 'activity3-3') {
-                    loadPiNameData();
-                }
+            // 선택된 하위 활동 보이기
+            document.getElementById(subActivityId).classList.remove('hidden');
+            
+            if (subActivityId === 'activity3-2') {
+                loadCalculationData();
+            } else if (subActivityId === 'activity3-3') {
+                loadPiNameData();
+            } else if (subActivityId === 'activity3-4') {
+                initializeHulaHoopBoard();
             }
         }
         
@@ -2125,6 +2281,17 @@
                     puzzleDiam: parseFloat(puzzleDiam),
                     timestamp: new Date()
                 });
+                
+                // 로컬 데이터도 즉시 업데이트
+                diameterData[team] = {
+                    canCirc: canCirc,
+                    tunaCirc: tunaCirc,
+                    puzzleCirc: puzzleCirc,
+                    canDiam: parseFloat(canDiam),
+                    tunaDiam: parseFloat(tunaDiam),
+                    puzzleDiam: parseFloat(puzzleDiam)
+                };
+                displayDiameterResults1();
                 
                 clearDiameterForm1();
                 alert('제출이 완료되었습니다! 🎉');
@@ -2660,6 +2827,248 @@
                 }
             }
             document.getElementById('formula-number').value = '';
+        }
+        
+        // 활동 2-5: 수식 계산 (활동2용)
+        function calculateFormula2() {
+            const diameter = parseFloat(document.getElementById('circle-diameter-2').value);
+            if (!diameter || diameter < 1 || diameter > 1000) {
+                alert('1~1000 사이의 값을 입력해주세요!');
+                return;
+            }
+            
+            const calculatedCircumference = diameter * 3.14;
+            const calculationDiv = document.getElementById('formula-calculation-2');
+            const calculatedResult = document.getElementById('calculated-result-2');
+            const formulaDiameterLabel = document.getElementById('formula-diameter-label-2');
+            
+            formulaDiameterLabel.textContent = `수식에 따라 계산된 지름 ${diameter}cm의 원주`;
+            calculatedResult.innerHTML = `<span style="font-size: 1.1em;">${diameter} × 3.14 = (약) <span style="color: #059669; font-size: 1.2em;">${calculatedCircumference.toFixed(2)} cm</span></span>`;
+            calculationDiv.classList.remove('hidden');
+            
+            // 비교 결과 숨기기 (새로 계산할 때)
+            document.getElementById('comparison-result-2').classList.add('hidden');
+            
+            // 굴려보기 결과 숨기기 (새로 계산할 때)
+            document.getElementById('rolling-result-2').classList.add('hidden');
+            
+            // 굴려보기 버튼 활성화
+            const rollingBtn = document.getElementById('rolling-btn-2');
+            rollingBtn.disabled = false;
+            rollingBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            rollingBtn.style.background = '';
+            rollingBtn.style.boxShadow = '';
+        }
+        
+        // 활동 2-5: 수식 확인 굴리기 (활동2용)
+        function startRolling2() {
+            const rollingBtn = document.getElementById('rolling-btn-2');
+            if (rollingBtn.disabled) {
+                alert('먼저 계산하기 버튼을 눌러주세요!');
+                return;
+            }
+            
+            const diameter = parseFloat(document.getElementById('circle-diameter-2').value);
+            if (!diameter || diameter < 1 || diameter > 1000) {
+                alert('1~1000 사이의 값을 입력해주세요!');
+                return;
+            }
+            
+            const circumference = diameter * Math.PI;
+            const container = document.getElementById('rolling-area-2');
+            const resultDiv = document.getElementById('rolling-result-2');
+            const actualCircumference = document.getElementById('actual-circumference-2');
+            
+            // 기존 애니메이션 정리
+            container.innerHTML = '';
+            resultDiv.classList.add('hidden');
+            document.getElementById('comparison-result-2').classList.add('hidden');
+            
+            // 스케일 계산
+            const scale = Math.min(20, 300 / diameter);
+            const scaledDiameter = diameter * scale;
+            const scaledCircumference = circumference * scale;
+            
+            // 컨테이너 크기 설정
+            const containerWidth = Math.max(scaledCircumference + 200, 800);
+            container.style.width = containerWidth + 'px';
+            container.style.height = '400px';
+            
+            // 자 생성
+            const ruler = document.createElement('div');
+            ruler.style.width = (scaledCircumference + 100) + 'px';
+            ruler.style.height = '40px';
+            ruler.style.position = 'absolute';
+            ruler.style.bottom = '100px';
+            ruler.style.left = '50px';
+            ruler.style.background = '#f0f0f0';
+            ruler.style.border = '2px solid #333';
+            ruler.style.borderRadius = '5px';
+            
+            // 자 눈금 추가
+            for (let i = 0; i <= circumference + 5; i++) {
+                const mark = document.createElement('div');
+                mark.style.position = 'absolute';
+                mark.style.left = (i * scale) + 'px';
+                mark.style.top = '0';
+                mark.style.width = '1px';
+                mark.style.height = i % 5 === 0 ? '30px' : '15px';
+                mark.style.background = '#333';
+                ruler.appendChild(mark);
+                
+                if (i % 5 === 0) {
+                    const label = document.createElement('div');
+                    label.textContent = i;
+                    label.style.position = 'absolute';
+                    label.style.left = (i * scale - 8) + 'px';
+                    label.style.top = '32px';
+                    label.style.fontSize = '12px';
+                    label.style.fontWeight = 'bold';
+                    ruler.appendChild(label);
+                }
+            }
+            
+            container.appendChild(ruler);
+            
+            // 원 생성
+            const circle = document.createElement('div');
+            circle.style.width = scaledDiameter + 'px';
+            circle.style.height = scaledDiameter + 'px';
+            circle.style.border = '3px solid #667eea';
+            circle.style.borderRadius = '50%';
+            circle.style.position = 'absolute';
+            circle.style.left = (50 - scaledDiameter/2) + 'px'; // 원의 중심이 0cm 지점에 오도록
+            circle.style.bottom = (100 + 40) + 'px';
+            circle.style.background = 'rgba(102, 126, 234, 0.1)';
+            
+            // 빨간 점 추가
+            const redDot = document.createElement('div');
+            redDot.style.width = '8px';
+            redDot.style.height = '8px';
+            redDot.style.background = '#e74c3c';
+            redDot.style.borderRadius = '50%';
+            redDot.style.position = 'absolute';
+            redDot.style.left = '50%';
+            redDot.style.bottom = '-4px';
+            redDot.style.transform = 'translateX(-50%)';
+            circle.appendChild(redDot);
+            
+            container.appendChild(circle);
+            
+            // 빨간 선 (궤적) - 원과 자의 접점 높이에 정확히 위치
+            const trail = document.createElement('div');
+            trail.style.height = '3px';
+            trail.style.background = '#e74c3c';
+            trail.style.position = 'absolute';
+            trail.style.left = '50px'; // 자의 0cm 지점에서 시작
+            trail.style.bottom = (100 + 40) + 'px'; // 자의 윗면과 정확히 일치
+            trail.style.width = '0px';
+            container.appendChild(trail);
+            
+            // 애니메이션 실행
+            let progress = 0;
+            const duration = 3000;
+            const startTime = Date.now();
+            
+            function animate() {
+                const elapsed = Date.now() - startTime;
+                progress = Math.min(elapsed / duration, 1);
+                
+                const distance = scaledCircumference * progress;
+                const rotation = (progress * 360);
+                
+                circle.style.left = (50 - scaledDiameter/2 + distance) + 'px';
+                circle.style.transform = `rotate(${rotation}deg)`;
+                trail.style.width = distance + 'px';
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    // 애니메이션 완료
+                    const rollingDiameterLabel = document.getElementById('rolling-diameter-label-2');
+                    rollingDiameterLabel.innerHTML = `지름 ${diameter}cm인 원이 한 바퀴 굴러간 <span style="color: red; font-weight: bold;">실제</span>거리`;
+                    
+                    // 실제 거리를 20자리까지 표시하고 앞 부분은 주황색으로
+                    const actualValue = circumference.toFixed(20);
+                    const parts = actualValue.split('.');
+                    const integerPart = parts[0];
+                    const decimalPart = parts[1];
+                    const firstTwoDecimals = decimalPart.substring(0, 2);
+                    const remainingDecimals = decimalPart.substring(2);
+                    
+                    actualCircumference.innerHTML = `<span style="color: orange; font-weight: bold; font-size: 1.2em;">${integerPart}.${firstTwoDecimals}</span>${remainingDecimals}... cm`;
+                    resultDiv.classList.remove('hidden');
+                    
+                    // 비교 결과 표시
+                    showComparison2(diameter);
+                    
+                    // 굴려보기 버튼 비활성화 (다음 턴을 위해)
+                    const rollingBtn = document.getElementById('rolling-btn-2');
+                    rollingBtn.disabled = true;
+                    rollingBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                }
+            }
+            
+            animate();
+        }
+        
+        // 비교 결과 표시 - 원주율의 복잡함을 보여주는 교육적 설명 추가 (활동2용)
+        function showComparison2(diameter) {
+            const calculatedCircumference = diameter * 3.14;
+            const actualCircumference = diameter * Math.PI;
+            const difference = Math.abs(calculatedCircumference - actualCircumference);
+            
+            const comparisonDiv = document.getElementById('comparison-result-2');
+            const comparisonText = document.getElementById('comparison-text-2');
+            
+            let resultHtml = `
+                <div class="mb-6">
+                    <div class="text-2xl font-semibold mb-4">📊 비교 결과</div>
+                    <div class="grid grid-cols-2 gap-6 text-base">
+                        <div class="bg-green-100 p-4 rounded-lg">
+                            <div class="font-semibold text-lg">우리가 계산한 값 (3.14 사용)</div>
+                            <div class="text-2xl font-bold text-green-600">(약) ${calculatedCircumference.toFixed(2)} cm</div>
+                        </div>
+                        <div class="bg-blue-100 p-4 rounded-lg">
+                            <div class="font-semibold text-lg">실제 굴러간 거리</div>
+                            <div class="text-2xl font-bold text-blue-600">
+                                <span style="color: orange; font-weight: bold;">${actualCircumference.toFixed(2).substring(0, actualCircumference.toFixed(2).indexOf('.') + 3)}</span>${actualCircumference.toFixed(20).substring(actualCircumference.toFixed(2).length)}... cm
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <span class="text-red-600 font-semibold text-xl">차이: ${difference.toFixed(3)} cm</span>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-yellow-100 to-orange-100 p-6 rounded-lg border-l-4 border-yellow-500">
+                    <div class="text-3xl font-bold mb-4">🔍 수학의 신비로운 발견!</div>
+                    <div class="text-lg space-y-3">
+                        <p class="text-xl"><strong>실제 규칙은 3.14보다 훨씬 복잡해요!</strong></p>
+                        <p class="pi-digits text-2xl font-bold">규칙 = 3.14159265358979323846264338327950288...</p>
+                        <p class="text-xl">이 숫자는 <strong>무한히 계속돼요!</strong> 🤯</p>
+                        <p class="text-xl">그래서 우리는 보통 <strong>3.14</strong>나 <strong>3.14159</strong> 정도로 근사값을 사용해요.</p>
+                        <div class="mt-4 p-4 bg-gradient-to-r from-pink-100 to-purple-100 rounded border">
+                            <div class="font-semibold text-indigo-600 text-xl">🎓 수학자들의 도전:</div>
+                            <div class="text-base mt-2">수천 년 동안 수학자들이 이 규칙의 정확한 값을 찾으려 노력했어요!</div>
+                            <div class="text-base">현재는 컴퓨터로 수조 자리까지 계산할 수 있답니다!</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            comparisonText.innerHTML = resultHtml;
+            comparisonDiv.classList.remove('hidden');
+        }
+        
+        function zoomIn2() {
+            currentZoom2 = Math.min(currentZoom2 * 1.2, 3);
+            document.getElementById('rolling-area-2').style.transform = `scale(${currentZoom2})`;
+        }
+        
+        function zoomOut2() {
+            currentZoom2 = Math.max(currentZoom2 / 1.2, 0.3);
+            document.getElementById('rolling-area-2').style.transform = `scale(${currentZoom2})`;
         }
         
         // 활동 3-1: 수식 계산
@@ -4180,6 +4589,208 @@
                 rollingBtn.classList.add('opacity-50', 'cursor-not-allowed');
             }
         });
+        
+        // 훌라후프 필기 보드판 관련 함수들
+        function initializeHulaHoopBoard() {
+            canvas = document.getElementById('hula-hoop-board');
+            if (!canvas) return;
+            
+            ctx = canvas.getContext('2d');
+            
+            // 캔버스 크기 설정
+            const rect = canvas.getBoundingClientRect();
+            canvas.width = rect.width;
+            canvas.height = rect.height;
+            
+            // 기본 설정
+            ctx.strokeStyle = currentPenColor;
+            ctx.lineWidth = currentPenSize;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            
+            // 이벤트 리스너 추가
+            canvas.addEventListener('mousedown', startDrawing);
+            canvas.addEventListener('mousemove', draw);
+            canvas.addEventListener('mouseup', stopDrawing);
+            canvas.addEventListener('mouseout', stopDrawing);
+            
+            // 터치 이벤트 지원
+            canvas.addEventListener('touchstart', handleTouch);
+            canvas.addEventListener('touchmove', handleTouch);
+            canvas.addEventListener('touchend', stopDrawing);
+        }
+        
+        function startDrawing(e) {
+            isDrawing = true;
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        }
+        
+        function draw(e) {
+            if (!isDrawing) return;
+            
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            ctx.lineTo(x, y);
+            ctx.stroke();
+        }
+        
+        function stopDrawing() {
+            isDrawing = false;
+        }
+        
+        function handleTouch(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown' : 
+                                            e.type === 'touchmove' ? 'mousemove' : 'mouseup', {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            canvas.dispatchEvent(mouseEvent);
+        }
+        
+        function clearBoard() {
+            if (!ctx) return;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+        
+        function changePenColor(color) {
+            currentPenColor = color;
+            if (ctx) {
+                ctx.strokeStyle = color;
+            }
+        }
+        
+        function changePenSize(size) {
+            currentPenSize = size;
+            if (ctx) {
+                ctx.lineWidth = size;
+            }
+        }
+        
+        // 훌라후프 데이터 제출
+        async function submitHulaHoop() {
+            const team = getSelectedTeam('team-select-3-4');
+            const diameter = document.getElementById('hula-hoop-diameter').value;
+            const circumference = document.getElementById('hula-hoop-circumference').value;
+            const calculation = document.getElementById('hula-hoop-calculation').value;
+            
+            if (!team || !diameter || !circumference || !calculation) {
+                alert('모든 항목을 입력해주세요!');
+                return;
+            }
+            
+            try {
+                // 기존 모둠 데이터 삭제
+                await deleteExistingTeamData('hulaHoops', team);
+                
+                // Firebase에 새 데이터 저장
+                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'hulaHoops'), {
+                    team: team,
+                    diameter: parseFloat(diameter),
+                    circumference: parseFloat(circumference),
+                    calculation: calculation,
+                    timestamp: new Date()
+                });
+                
+                // 로컬 데이터도 즉시 업데이트
+                hulaHoopData[team] = {
+                    diameter: parseFloat(diameter),
+                    circumference: parseFloat(circumference),
+                    calculation: calculation
+                };
+                displayHulaHoopResults();
+                
+                clearHulaHoopForm();
+                alert('제출이 완료되었습니다! 🎉');
+            } catch (error) {
+                console.error('데이터 저장 중 오류 발생:', error);
+                alert('데이터 저장 중 오류가 발생했습니다. 다시 시도해주세요.');
+            }
+        }
+        
+        function displayHulaHoopResults() {
+            const resultsDiv = document.getElementById('hula-hoop-results');
+            if (Object.keys(hulaHoopData).length === 0) {
+                resultsDiv.innerHTML = '<p class="text-center text-gray-500 text-lg">아직 제출된 결과가 없습니다.</p>';
+                return;
+            }
+            
+            let html = '';
+            for (const [team, data] of Object.entries(hulaHoopData)) {
+                html += `
+                    <div class="bg-white p-4 rounded-xl shadow-lg border-l-4 border-pink-500 mb-3">
+                        <h4 class="font-bold text-lg text-pink-600 mb-3 text-center bg-pink-50 py-2 rounded-lg">${team}</h4>
+                        <div class="space-y-3">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-blue-50 p-3 rounded-lg">
+                                    <div class="font-semibold text-sm text-blue-700 mb-1">📏 측정한 지름</div>
+                                    <div class="text-lg font-bold text-blue-800">${data.diameter}cm</div>
+                                </div>
+                                <div class="bg-green-50 p-3 rounded-lg">
+                                    <div class="font-semibold text-sm text-green-700 mb-1">🧮 계산한 원주</div>
+                                    <div class="text-lg font-bold text-green-800">${data.circumference}cm</div>
+                                </div>
+                            </div>
+                            <div class="bg-yellow-50 p-3 rounded-lg">
+                                <div class="font-semibold text-sm text-yellow-700 mb-2">📝 계산 과정</div>
+                                <div class="text-sm text-gray-700 leading-relaxed">${data.calculation}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            resultsDiv.innerHTML = html;
+        }
+        
+        function clearHulaHoopForm() {
+            // team-select-3-4 초기화
+            const container3_4 = document.getElementById('team-select-3-4');
+            if (container3_4) {
+                const selectedButton = container3_4.querySelector('.team-option.ring-4');
+                if (selectedButton) {
+                    selectedButton.classList.remove('ring-4', 'ring-blue-500', 'bg-blue-100');
+                    selectedButton.style.transform = 'scale(1)';
+                }
+                const selectedTeamDiv = container3_4.querySelector('[id^="selected-team-"]');
+                if (selectedTeamDiv) {
+                    selectedTeamDiv.classList.add('hidden');
+                }
+            }
+            document.getElementById('hula-hoop-diameter').value = '';
+            document.getElementById('hula-hoop-circumference').value = '';
+            document.getElementById('hula-hoop-calculation').value = '';
+            clearBoard();
+        }
+        
+        async function clearAllHulaHoops() {
+            if (!confirmPassword()) {
+                return;
+            }
+            if (!confirm('모든 훌라후프 데이터를 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.')) {
+                return;
+            }
+            
+            try {
+                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'hulaHoops'));
+                const deletePromises = querySnapshot.docs.map(doc => window.firebaseDeleteDoc(doc.ref));
+                await Promise.all(deletePromises);
+                
+                hulaHoopData = {};
+                displayHulaHoopResults();
+                alert('훌라후프 데이터가 모두 삭제되었습니다! 🗑️');
+            } catch (error) {
+                console.error('데이터 삭제 중 오류 발생:', error);
+                alert('데이터 삭제 중 오류가 발생했습니다.');
+            }
+        }
     </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97df4b1566e2aa41',t:'MTc1NzY3ODkzOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

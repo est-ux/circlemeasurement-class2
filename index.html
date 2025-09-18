@@ -1454,7 +1454,7 @@
             console.log('Firebase 리스너 초기화 시작');
             
             // 측정 데이터 실시간 동기화
-            const measurementQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'measurements'), window.firebaseOrderBy('timestamp', 'desc'));
+            const measurementQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'measurementsClass2'), window.firebaseOrderBy('timestamp', 'desc'));
             window.firebaseOnSnapshot(measurementQuery, (snapshot) => {
                 console.log('측정 데이터 업데이트:', snapshot.size, '개 문서');
                 measurementData = {};
@@ -1474,7 +1474,7 @@
             });
             
             // 지름 데이터 실시간 동기화
-            const diameterQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'diameters'), window.firebaseOrderBy('timestamp', 'desc'));
+            const diameterQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'diametersClass2'), window.firebaseOrderBy('timestamp', 'desc'));
             window.firebaseOnSnapshot(diameterQuery, (snapshot) => {
                 console.log('지름 데이터 업데이트:', snapshot.size, '개 문서');
                 diameterData = {};
@@ -1497,7 +1497,7 @@
             });
             
             // 수식 데이터 실시간 동기화
-            const formulaQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'formulas'), window.firebaseOrderBy('timestamp', 'desc'));
+            const formulaQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'formulasClass2'), window.firebaseOrderBy('timestamp', 'desc'));
             window.firebaseOnSnapshot(formulaQuery, (snapshot) => {
                 console.log('수식 데이터 업데이트:', snapshot.size, '개 문서');
                 formulaData = {};
@@ -1525,7 +1525,7 @@
             });
             
             // 파이 이름 데이터 실시간 동기화
-            const piNameQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'piNames'), window.firebaseOrderBy('timestamp', 'desc'));
+            const piNameQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'piNamesClass2'), window.firebaseOrderBy('timestamp', 'desc'));
             window.firebaseOnSnapshot(piNameQuery, (snapshot) => {
                 console.log('파이 이름 데이터 업데이트:', snapshot.size, '개 문서');
                 piNameData = {};
@@ -1542,7 +1542,7 @@
             });
             
             // 측정 방법 데이터 실시간 동기화
-            const methodsQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'methods'), window.firebaseOrderBy('timestamp', 'desc'));
+            const methodsQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'methodsClass2'), window.firebaseOrderBy('timestamp', 'desc'));
             window.firebaseOnSnapshot(methodsQuery, (snapshot) => {
                 console.log('측정 방법 데이터 업데이트:', snapshot.size, '개 문서');
                 methodsData = {};
@@ -1560,7 +1560,7 @@
             });
             
             // 계산 데이터 실시간 동기화
-            const calculationQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'calculations'), window.firebaseOrderBy('timestamp', 'desc'));
+            const calculationQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'calculationsClass2'), window.firebaseOrderBy('timestamp', 'desc'));
             window.firebaseOnSnapshot(calculationQuery, (snapshot) => {
                 console.log('계산 데이터 업데이트:', snapshot.size, '개 문서');
                 sharedCalculationData = {};
@@ -1580,7 +1580,7 @@
             });
             
             // 훌라후프 데이터 실시간 동기화
-            const hulaHoopQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'hulaHoops'), window.firebaseOrderBy('timestamp', 'desc'));
+            const hulaHoopQuery = window.firebaseQuery(window.firebaseCollection(window.firebaseDb, 'hulaHoopsClass2'), window.firebaseOrderBy('timestamp', 'desc'));
             window.firebaseOnSnapshot(hulaHoopQuery, (snapshot) => {
                 console.log('훌라후프 데이터 업데이트:', snapshot.size, '개 문서');
                 hulaHoopData = {};
@@ -1634,7 +1634,7 @@
             }
             
             try {
-                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'methods'));
+                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'methodsClass2'));
                 const deletePromises = querySnapshot.docs.map(doc => window.firebaseDeleteDoc(doc.ref));
                 await Promise.all(deletePromises);
                 
@@ -1656,7 +1656,7 @@
             }
             
             try {
-                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'measurements'));
+                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'measurementsClass2'));
                 const deletePromises = querySnapshot.docs.map(doc => window.firebaseDeleteDoc(doc.ref));
                 await Promise.all(deletePromises);
                 
@@ -1678,7 +1678,7 @@
             }
             
             try {
-                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'diameters'));
+                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'diametersClass2'));
                 const deletePromises = querySnapshot.docs.map(doc => window.firebaseDeleteDoc(doc.ref));
                 await Promise.all(deletePromises);
                 
@@ -1700,7 +1700,7 @@
             }
             
             try {
-                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'formulas'));
+                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'formulasClass2'));
                 const deletePromises = querySnapshot.docs.map(doc => window.firebaseDeleteDoc(doc.ref));
                 await Promise.all(deletePromises);
                 
@@ -1722,7 +1722,7 @@
             }
             
             try {
-                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'piNames'));
+                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'piNamesClass2'));
                 const deletePromises = querySnapshot.docs.map(doc => window.firebaseDeleteDoc(doc.ref));
                 await Promise.all(deletePromises);
                 
@@ -1744,7 +1744,7 @@
             }
             
             try {
-                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'calculations'));
+                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'calculationsClass2'));
                 const deletePromises = querySnapshot.docs.map(doc => window.firebaseDeleteDoc(doc.ref));
                 await Promise.all(deletePromises);
                 
@@ -1916,7 +1916,7 @@
                 await deleteExistingTeamData('methods', team);
                 
                 // Firebase에 새 데이터 저장
-                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'methods'), {
+                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'methodsClass2'), {
                     team: team,
                     method1: method1,
                     method2: method2 || '',
@@ -2010,7 +2010,7 @@
                 await deleteExistingTeamData('measurements', team);
                 
                 // Firebase에 새 데이터 저장
-                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'measurements'), {
+                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'measurementsClass2'), {
                     team: team,
                     can: parseFloat(can),
                     tuna: parseFloat(tuna),
@@ -2270,7 +2270,7 @@
                 await deleteExistingTeamData('diameters', team);
                 
                 // Firebase에 새 데이터 저장
-                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'diameters'), {
+                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'diametersClass2'), {
                     team: team,
                     canCirc: canCirc,
                     tunaCirc: tunaCirc,
@@ -2375,7 +2375,7 @@
             }
             
             try {
-                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'diameters'));
+                const querySnapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDb, 'diametersClass2'));
                 const deletePromises = querySnapshot.docs.map(doc => window.firebaseDeleteDoc(doc.ref));
                 await Promise.all(deletePromises);
                 
@@ -2425,7 +2425,7 @@
                 await deleteExistingTeamData('diameters', team);
                 
                 // Firebase에 새 데이터 저장
-                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'diameters'), {
+                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'diametersClass2'), {
                     team: team,
                     canCirc: canCirc,
                     tunaCirc: tunaCirc,
@@ -2725,7 +2725,7 @@
                 await deleteExistingTeamData('formulas', team);
                 
                 // Firebase에 새 데이터 저장
-                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'formulas'), {
+                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'formulasClass2'), {
                     team: team,
                     formula: formula,
                     timestamp: new Date()
@@ -3415,7 +3415,7 @@
                 await deleteExistingTeamData('calculations', selectedTeam);
                 
                 // Firebase에 새 데이터 저장
-                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'calculations'), {
+                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'calculationsClass2'), {
                     ...calculationData,
                     timestamp: new Date()
                 });
@@ -3696,7 +3696,7 @@
                 await deleteExistingTeamData('piNames', team);
                 
                 // Firebase에 새 데이터 저장
-                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'piNames'), {
+                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'piNamesClass2'), {
                     team: team,
                     piName: piName,
                     formula: formulaData[team]?.formula || '',
@@ -4530,7 +4530,7 @@
                         measurementHtml = `
                             <div class="grid grid-cols-3 gap-2 text-xs">
                                 <div>🥫 참치: 둘레 ${data.tunaCirc}cm, 지름 ${data.tunaDiam}cm</div>
-                                <div>🐟 꽁치: 둘레 ${data.sauryCirc}cm, 지름 ${data.sauryDiam}cm</div>
+                                <div>🧩 퍼즐통: 둘레 ${data.puzzleCirc}cm, 지름 ${data.puzzleDiam}cm</div>
                                 <div>🥤 음료수: 둘레 ${data.canCirc}cm, 지름 ${data.canDiam}cm</div>
                             </div>
                         `;
@@ -4691,7 +4691,7 @@
                 await deleteExistingTeamData('hulaHoops', team);
                 
                 // Firebase에 새 데이터 저장
-                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'hulaHoops'), {
+                await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'hulaHoopsClass2'), {
                     team: team,
                     diameter: parseFloat(diameter),
                     circumference: parseFloat(circumference),
